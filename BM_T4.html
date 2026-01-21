@@ -3,37 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPH BM TAHUN 4 - STYLE ANDREW</title>
+    <title>RPH BAHASA MELAYU TAHUN 4</title>
     <style>
         :root { --primary: #003366; --accent: #c0392b; --bg: #f5f7fa; }
         body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); margin: 0; padding: 20px; }
-        .setup-box { max-width: 1000px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 10px solid var(--primary); }
-        .setup-box h1 { text-align: center; color: var(--primary); text-transform: uppercase; border-bottom: 2px solid #eee; padding-bottom: 15px; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 20px; }
+        .setup-box { max-width: 1000px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-top: 8px solid var(--primary); }
+        .setup-box h1 { text-align: center; color: var(--primary); text-transform: uppercase; margin-bottom: 25px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
         label { font-weight: bold; color: var(--primary); font-size: 13px; text-transform: uppercase; }
-        select, input, textarea { width: 100%; padding: 12px; border: 1.5px solid #ccc; border-radius: 8px; margin-top: 5px; font-size: 14px; box-sizing: border-box; }
-        .sp-container { border: 1.5px solid #ccc; border-radius: 8px; max-height: 300px; overflow-y: auto; background: #fff; margin-top: 10px; }
+        select, input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; margin-top: 5px; font-size: 14px; box-sizing: border-box; }
+        .sp-container { border: 1px solid #ccc; border-radius: 6px; max-height: 250px; overflow-y: auto; background: #fff; margin-top: 10px; }
         .sp-table { width: 100%; border-collapse: collapse; }
-        .sp-table tr { cursor: pointer; border-bottom: 1px solid #eee; transition: 0.3s; }
+        .sp-table tr { cursor: pointer; border-bottom: 1px solid #eee; }
         .sp-table tr:hover { background: #f0f4f8; }
-        .sp-table td { padding: 12px; font-size: 13px; line-height: 1.4; }
-        .selected-row { background: #e1f5fe !important; font-weight: bold; color: #01579b; border-left: 5px solid #0288d1; }
-        .ai-buttons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
-        .btn-ai { background: #673ab7; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 11px; }
-        .btn-save { background: var(--primary); color: white; border: none; padding: 20px; border-radius: 10px; width: 100%; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 30px; }
+        .sp-table td { padding: 10px; font-size: 13px; line-height: 1.4; }
+        .selected-row { background: #e1f5fe !important; font-weight: bold; border-left: 5px solid #0288d1; }
+        .ai-buttons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
+        .btn-ai { background: #673ab7; color: white; border: none; padding: 8px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 11px; }
+        .action-btns { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; margin-top: 25px; }
+        .btn-main { background: var(--primary); color: white; border: none; padding: 15px; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+        .btn-clear { background: #7f8c8d; color: white; border: none; padding: 15px; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+        .btn-hub { display: block; text-align: center; margin-top: 20px; padding: 10px; background: #2c3e50; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px; }
         
-        /* INTERACTIVE PRINT FORMAT */
-        .rph-paper { width: 210mm; padding: 20mm; margin: 40px auto; background: white; border: 1px solid #ddd; color: #000; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        .rph-header { text-align: center; border-bottom: 5px double #000; padding-bottom: 10px; margin-bottom: 20px; }
-        .rph-header h1 { margin: 0; font-size: 28px; text-decoration: none; }
-        .rph-header h2 { margin: 5px 0 0 0; font-size: 20px; color: #333; }
-        .meta-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; border: 2px solid #000; }
-        .meta-table td { border: 1px solid #000; padding: 8px; font-weight: bold; font-size: 14px; background: #fafafa; }
-        .main-table { width: 100%; border-collapse: collapse; border: 2px solid #000; }
-        .main-table td { border: 1px solid #000; padding: 15px; vertical-align: top; font-size: 15px; line-height: 1.6; }
-        .label-cell { width: 25%; background: #eee !important; font-weight: 800; text-transform: uppercase; font-size: 13px; }
+        /* PRINT FORMAT */
+        .rph-paper { width: 210mm; padding: 20mm; margin: 40px auto; background: white; border: 1px solid #000; color: #000; box-sizing: border-box; }
+        .rph-header { text-align: center; border-bottom: 4px double #000; padding-bottom: 10px; margin-bottom: 20px; }
+        .rph-header h1 { margin: 0; font-size: 24px; }
+        .rph-header h2 { margin: 5px 0 0 0; font-size: 18px; }
+        .meta-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+        .meta-table td { border: 1px solid #000; padding: 8px; font-weight: bold; font-size: 14px; }
+        .main-table { width: 100%; border-collapse: collapse; }
+        .main-table td { border: 1px solid #000; padding: 12px; vertical-align: top; font-size: 14px; line-height: 1.5; }
+        .label-cell { width: 28%; background: #f2f2f2 !important; font-weight: bold; text-transform: uppercase; }
         .sig-section { margin-top: 50px; display: flex; justify-content: space-between; }
-        .sig-box { width: 250px; border-top: 2px solid #000; text-align: center; padding-top: 5px; font-weight: bold; }
+        .sig-box { width: 200px; border-top: 1px solid #000; text-align: center; padding-top: 5px; font-weight: bold; }
 
         @media print {
             body { padding: 0; background: white; }
@@ -45,92 +48,115 @@
 <body>
 
 <div class="setup-box no-print">
-    <h1>BM TAHUN 4 (STYLE ANDREW)</h1>
+    <h1>PENGURUSAN RPH: BM TAHUN 4</h1>
     <div class="grid-3">
-        <div><label>Tarikh</label><input type="date" id="tark" onchange="getHari()"></div>
+        <div><label>Tarikh</label><input type="date" id="tark" onchange="updateDay()"></div>
         <div><label>Hari</label><input type="text" id="hari" readonly></div>
         <div><label>Minggu</label><select id="mng"></select></div>
-        <div><label>Masa / Kelas</label><input type="text" id="masa" placeholder="08:00 - 09:30"> <input type="text" id="kls" value="4 CEMERLANG"></div>
+        <div><label>Masa</label><input type="text" id="masa" placeholder="Contoh: 08:00 - 09:00"></div>
     </div>
     
-    <div><label>Tema / Tajuk</label><input type="text" id="tajuk" placeholder="Contoh: KESELAMATAN / Waspada Selalu"></div>
+    <div><label>Tema / Tajuk</label><input type="text" id="tajuk" placeholder="Masukkan Tema dan Tajuk"></div>
 
-    <div style="margin-top:20px">
+    <div style="margin-top:15px">
         <label>Standard Kandungan (SK)</label>
         <select id="sk_select" onchange="loadSP()">
             <option value="1.1">1.1 Mendengar dan memberikan respons</option>
             <option value="1.2">1.2 Bertutur untuk menyampaikan maklumat</option>
+            <option value="1.3">1.3 Bercerita, dan menceritakan perkara yang didengar</option>
             <option value="2.1">2.1 Asas membaca dan memahami</option>
-            <option value="2.2">2.2 Membaca, memahami dan menaakul</option>
-            <option value="2.3">2.3 Membaca dan mengapresiasi karya</option>
+            <option value="2.2">2.2 Membaca, memahami, dan menaakul</option>
+            <option value="2.3">2.3 Membaca dan mengapresiasi karya sastra dan bukan sastra</option>
             <option value="3.1">3.1 Asas menulis</option>
             <option value="3.2">3.2 Menulis perkataan, frasa, dan ayat</option>
             <option value="3.3">3.3 Menghasilkan penulisan</option>
             <option value="4.1">4.1 Mengaplikasikan unsur seni bahasa</option>
+            <option value="4.2">4.2 Menghayati keindahan dan kesantunan bahasa</option>
             <option value="5.1">5.1 Memahami dan menggunakan golongan kata</option>
             <option value="5.2">5.2 Memahami dan menggunakan pembentukan kata</option>
             <option value="5.3">5.3 Memahami dan menggunakan pembentukan ayat</option>
         </select>
     </div>
 
-    <div style="margin-top:20px">
+    <div style="margin-top:15px">
         <label>Standard Pembelajaran (SP)</label>
         <div class="sp-container"><table class="sp-table" id="sp-list"></table></div>
     </div>
 
     <div class="ai-buttons">
-        <div><button class="btn-ai" onclick="generate('obj')">🪄 OBJEKTIF</button><textarea id="i_obj" rows="4"></textarea></div>
-        <div><button class="btn-ai" onclick="generate('act')">🪄 AKTIVITI</button><textarea id="i_act" rows="4"></textarea></div>
-        <div><button class="btn-ai" onclick="generate('ref')">🪄 REFLEKSI</button><textarea id="i_ref" rows="4"></textarea></div>
+        <div><button class="btn-ai" onclick="aiFill('obj')">🪄 AUTO OBJEKTIF</button><textarea id="f_obj" rows="3"></textarea></div>
+        <div><button class="btn-ai" onclick="aiFill('act')">🪄 AUTO AKTIVITI</button><textarea id="f_act" rows="3"></textarea></div>
+        <div><button class="btn-ai" onclick="aiFill('ref')">🪄 AUTO REFLEKSI</button><textarea id="f_ref" rows="3"></textarea></div>
     </div>
 
-    <button class="btn-save" onclick="saveRPH()">JANA RPH PROFESIONAL</button>
+    <div class="action-btns">
+        <button class="btn-main" onclick="generateRPH()">JANA RPH</button>
+        <button class="btn-clear" onclick="clearAll()">KOSONGKAN RPH</button>
+    </div>
+    <a href="index.html" class="btn-hub">KEMBALI KE HUB UTAMA</a>
 </div>
 
 <div id="print-zone"></div>
 
 <script>
-const dataBM4 = {
-    "1.1": ["1.1.1 Mendengar, mengecam sebutan, dan menyebut sesuatu yang didengar dengan betul.", "1.1.2 Mendengar, memahami dan memberikan respons terhadap ujaran yang terdapat dalam situasi tidak formal.", "1.1.3 Mendengar, memahami dan memberikan respons terhadap soalan bertumpu dan bercabang."],
-    "1.2": ["1.2.1 Bertutur untuk menilai, dan memberikan alasan tentang sesuatu perkara.", "1.2.2 Menjelaskan dan membanding beza maklumat yang tersurat dan tersirat."],
-    "2.1": ["2.1.1 Membaca dan memahami petikan dengan sebutan yang betul dan intonasi yang sesuai.", "2.2.1 Membaca dan memahami bahan grafik daripada multimedia untuk membuat gambaran."],
+const spData = {
+    "1.1": ["1.1.1 Mendengar, mengecam sebutan, dan menyebut sesuatu yang didengar dengan betul.", "1.1.2 Mendengar, memahami dan memberikan respons terhadap ujaran situasi tidak formal.", "1.1.3 Mendengar, memahami dan memberikan respons terhadap soalan bertumpu dan bercabang."],
+    "1.2": ["1.2.1 Bertutur untuk menilai, dan memberikan alasan tentang sesuatu perkara.", "1.2.2 Menjelaskan dan membanding beza maklumat yang tersurat dan tersirat secara kreatif.", "1.2.3 Memberi respons terhadap suruhan dan permintaan."],
+    "2.1": ["2.1.1 Membaca dan memahami petikan dengan sebutan yang betul dan intonasi yang sesuai."],
+    "2.2": ["2.2.1 Membaca dan memahami bahan grafik daripada multimedia untuk membuat gambaran."],
     "3.1": ["3.1.1 Menulis secara mekanis menggunakan tulisan berangkai dalam bentuk ayat."],
-    "3.2": ["3.2.1 Membina dan menulis ayat dan perenggan daripada bahan multimedia.", "3.2.2 Menghasilkan jawapan pemahaman berdasarkan soalan bertumpu dan bercabang.", "3.2.4 Menulis imlak ayat yang mengandungi perkataan berimbuhan."],
-    "5.1": ["5.1.1 Memahami dan menggunakan kata nama mengikut konteks.", "5.1.2 Memahami dan menggunakan kata kerja mengikut konteks.", "5.1.4 Memahami dan menggunakan kata tugas mengikut konteks."]
+    "3.2": ["3.2.1 Membina dan menulis ayat dan perenggan daripada bahan multimedia.", "3.2.2 Menghasilkan jawapan pemahaman berdasarkan soalan bertumpu dan bercabang.", "3.2.3 Menganalisis dan mencatat maklumat tentang sesuatu perkara.", "3.2.4 Menulis imlak ayat yang mengandungi perkataan berimbuhan."],
+    "3.3": ["3.3.1 Menghasilkan penulisan berformat dan tidak berformat secara koheren.", "3.3.2 Mengedit dan memurnikan ayat daripada aspek ejaan, tanda baca dan penggunaan imbuhan."],
+    "5.1": ["5.1.1 Memahami dan menggunakan kata nama mengikut konteks.", "5.1.2 Memahami dan menggunakan kata kerja mengikut konteks.", "5.1.3 Memahami dan menggunakan kata adjektif mengikut konteks.", "5.1.4 Memahami dan menggunakan kata tugas mengikut konteks."],
+    "5.2": ["5.2.1 Memahami dan menggunakan kata berimbuhan mengikut konteks."],
+    "5.3": ["5.3.1 Memahami dan membina pelbagai jenis ayat mengikut konteks."]
 };
 
-let spPicks = [];
-const ms = document.getElementById('mng'); for(let i=1; i<=42; i++) ms.innerHTML += `<option value="${i}">Minggu ${i}</option>`;
+let selectedSP = [];
+const mngSelect = document.getElementById('mng');
+for(let i=1; i<=42; i++) mngSelect.innerHTML += `<option value="${i}">Minggu ${i}</option>`;
 
-function getHari() {
+function updateDay() {
     const d = new Date(document.getElementById('tark').value);
     document.getElementById('hari').value = ["Ahad","Isnin","Selasa","Rabu","Khamis","Jumaat","Sabtu"][d.getDay()];
 }
 
 function loadSP() {
     const sk = document.getElementById('sk_select').value;
-    const box = document.getElementById('sp-list'); box.innerHTML = ""; spPicks = [];
-    dataBM4[sk]?.forEach(s => {
-        let r = box.insertRow();
+    const table = document.getElementById('sp-list');
+    table.innerHTML = ""; selectedSP = [];
+    spData[sk]?.forEach(s => {
+        let r = table.insertRow();
         r.onclick = function() {
             this.classList.toggle('selected-row');
-            if(this.classList.contains('selected-row')) spPicks.push(s);
-            else spPicks = spPicks.filter(i => i !== s);
+            if(this.classList.contains('selected-row')) selectedSP.push(s);
+            else selectedSP = selectedSP.filter(i => i !== s);
         };
         r.innerHTML = `<td>${s}</td>`;
     });
 }
 loadSP();
 
-function generate(t) {
-    const tajuk = document.getElementById('tajuk').value || "Topik BM";
-    if(t==='obj') document.getElementById('i_obj').value = `Pada akhir PdPc, murid dapat:\n1. Memahami konsep ${tajuk} dan mengaplikasikan kemahiran bahasa mengikut Standard Pembelajaran dengan tepat.`;
-    else if(t==='act') document.getElementById('i_act').value = `1. Set Induksi: Murid memerhati gambar/video tajuk.\n2. Aktiviti: Murid membaca teks, berbincang dalam kumpulan dan membina ayat.\n3. Penutup: Murid melengkapkan lembaran kerja dan membuat rumusan.`;
-    else document.getElementById('i_ref').value = `___ / ___ murid menguasai objektif hari ini. Murid yang belum menguasai diberi bimbingan tambahan.`;
+function aiFill(type) {
+    const t = document.getElementById('tajuk').value || "Tajuk Pembelajaran";
+    if(type==='obj') document.getElementById('f_obj').value = `Pada akhir PdPc, murid dapat:\n1. Menguasai kemahiran bahasa berkaitan ${t} dengan betul dan tepat.`;
+    else if(type==='act') document.getElementById('f_act').value = `1. Set Induksi: Sumbang saran tajuk.\n2. Aktiviti: Murid membaca teks, berbincang dalam kumpulan dan membina ayat.\n3. Penutup: Penilaian dan rumusan guru.`;
+    else document.getElementById('f_ref').value = `___ / ___ murid mencapai objektif. Latihan pengukuhan diberikan.`;
 }
 
-function saveRPH() {
-    if(spPicks.length === 0) return alert("Sila pilih SP!");
+function clearAll() {
+    if(confirm("Adakah anda pasti mahu kosongkan semua?")) {
+        document.getElementById('tajuk').value = "";
+        document.getElementById('f_obj').value = "";
+        document.getElementById('f_act').value = "";
+        document.getElementById('f_ref').value = "";
+        document.getElementById('print-zone').innerHTML = "";
+        loadSP();
+    }
+}
+
+function generateRPH() {
+    if(selectedSP.length === 0) return alert("Pilih sekurang-kurangnya satu SP!");
     const skTxt = document.getElementById('sk_select').options[document.getElementById('sk_select').selectedIndex].text;
     const content = `
     <div class="rph-paper">
@@ -145,18 +171,17 @@ function saveRPH() {
                 <td>MINGGU: ${document.getElementById('mng').value}</td>
             </tr>
             <tr>
-                <td>MASA: ${document.getElementById('masa').value}</td>
-                <td>KELAS: ${document.getElementById('kls').value}</td>
+                <td colspan="2">MASA: ${document.getElementById('masa').value}</td>
                 <td>GURU: MOHAMAD HELMIE</td>
             </tr>
         </table>
         <table class="main-table">
             <tr><td class="label-cell">TEMA / TAJUK</td><td>${document.getElementById('tajuk').value}</td></tr>
             <tr><td class="label-cell">STANDARD KANDUNGAN</td><td>${skTxt}</td></tr>
-            <tr><td class="label-cell">STANDARD PEMBELAJARAN</td><td style="font-weight:bold">${spPicks.map(p => "• "+p).join("<br>")}</td></tr>
-            <tr><td class="label-cell">OBJEKTIF PEMBELAJARAN</td><td>${document.getElementById('i_obj').value.replace(/\n/g,"<br>")}</td></tr>
-            <tr><td class="label-cell">AKTIVITI PdPc</td><td>${document.getElementById('i_act').value.replace(/\n/g,"<br>")}</td></tr>
-            <tr><td class="label-cell">REFLEKSI / IMPAK</td><td>${document.getElementById('i_ref').value.replace(/\n/g,"<br>")}</td></tr>
+            <tr><td class="label-cell">STANDARD PEMBELAJARAN</td><td style="font-weight:bold">${selectedSP.map(s => "• "+s).join("<br>")}</td></tr>
+            <tr><td class="label-cell">OBJEKTIF PEMBELAJARAN</td><td>${document.getElementById('f_obj').value.replace(/\n/g,"<br>")}</td></tr>
+            <tr><td class="label-cell">AKTIVITI PdPc</td><td>${document.getElementById('f_act').value.replace(/\n/g,"<br>")}</td></tr>
+            <tr><td class="label-cell">REFLEKSI / IMPAK</td><td>${document.getElementById('f_ref').value.replace(/\n/g,"<br>")}</td></tr>
         </table>
         <div class="sig-section">
             <div class="sig-box">TANDATANGAN GURU</div>
