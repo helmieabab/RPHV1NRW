@@ -2,159 +2,176 @@
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPH BKD T1 - ANDREW ARID</title>
+    <title>RPH BKD T1 SUPER AI - ANDREW ARID</title>
     <style>
-        :root { --primary: #003366; --accent: #27ae60; --bg: #f5f7fa; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); margin: 0; padding: 20px; }
-        .setup-box { max-width: 1000px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-top: 8px solid var(--primary); }
-        .setup-box h1 { text-align: center; color: var(--primary); text-transform: uppercase; margin-bottom: 25px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
-        label { font-weight: bold; color: var(--primary); font-size: 13px; text-transform: uppercase; }
-        select, input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; margin-top: 5px; font-size: 14px; box-sizing: border-box; }
-        .sp-container { border: 1px solid #ccc; border-radius: 6px; max-height: 300px; overflow-y: auto; background: #fff; margin-top: 10px; }
-        .sp-table { width: 100%; border-collapse: collapse; }
-        .sp-table tr { cursor: pointer; border-bottom: 1px solid #eee; }
-        .sp-table tr:hover { background: #f0f4f8; }
-        .sp-table td { padding: 10px; font-size: 13px; line-height: 1.4; }
-        .selected-row { background: #e1f5fe !important; font-weight: bold; border-left: 5px solid #0288d1; }
+        :root { --p: #003366; --ai: #8e44ad; --accent: #27ae60; --bg: #f5f7fa; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); padding: 20px; }
+        .setup-box { max-width: 1100px; margin: auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-top: 10px solid var(--p); }
+        .grid-header { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
+        label { font-weight: bold; color: var(--p); font-size: 12px; text-transform: uppercase; }
+        select, input, textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; margin-top: 5px; font-size: 14px; box-sizing: border-box; }
         
-        .action-btns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 25px; }
-        .btn-main { background: var(--primary); color: white; border: none; padding: 15px; border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
-        .btn-print { background: var(--accent); color: white; border: none; padding: 15px; border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
-        .btn-clear { background: #7f8c8d; color: white; border: none; padding: 15px; border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+        .sp-box { border: 1px solid #ccc; border-radius: 6px; max-height: 250px; overflow-y: auto; background: #fff; margin: 10px 0; }
+        .sp-item { padding: 10px; cursor: pointer; border-bottom: 1px solid #eee; font-size: 13px; transition: 0.2s; }
+        .sp-item:hover { background: #f0f4f8; }
+        .selected { background: #e1f5fe !important; font-weight: bold; border-left: 6px solid #0288d1; }
         
-        /* PRINT FORMAT */
-        .rph-paper { width: 210mm; padding: 20mm; margin: 40px auto; background: white; border: 1px solid #000; color: #000; box-sizing: border-box; }
-        .rph-header { text-align: center; border-bottom: 4px double #000; padding-bottom: 10px; margin-bottom: 20px; }
-        .meta-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
-        .meta-table td { border: 1px solid #000; padding: 8px; font-weight: bold; font-size: 13px; }
-        .main-table { width: 100%; border-collapse: collapse; }
-        .main-table td { border: 1px solid #000; padding: 12px; vertical-align: top; font-size: 13px; line-height: 1.5; }
-        .label-cell { width: 30%; background: #f2f2f2 !important; font-weight: bold; text-transform: uppercase; }
+        .ai-section { background: #fdf2ff; padding: 20px; border-radius: 10px; border: 1px solid #d7bde2; margin-top: 20px; }
+        .btn-ai { background: var(--ai); color: white; border: none; padding: 15px; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%; font-size: 14px; margin-bottom: 15px; box-shadow: 0 4px 0 #6c3483; }
+        .btn-ai:active { transform: translateY(3px); box-shadow: none; }
+        .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
 
-        @media print {
-            body { padding: 0; background: white; }
-            .no-print { display: none; }
-            .rph-paper { margin: 0; border: none; width: 100%; }
-        }
+        .action-btns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 25px; }
+        .btn-main { background: var(--p); color: white; border: none; padding: 18px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        .btn-print { background: var(--accent); color: white; border: none; padding: 18px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        .btn-reset { background: #e67e22; color: white; border: none; padding: 18px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        
+        .rph-paper { width: 210mm; padding: 20mm; margin: 40px auto; background: white; border: 1px solid #000; box-sizing: border-box; }
+        .m-table { width: 100%; border-collapse: collapse; }
+        .m-table td { border: 1px solid #000; padding: 12px; font-size: 13px; vertical-align: top; line-height: 1.6; }
+        .label { background: #f2f2f2 !important; font-weight: bold; width: 25%; text-transform: uppercase; }
+        
+        @media print { .no-print { display: none; } .rph-paper { margin: 0; border: none; width: 100%; } }
     </style>
 </head>
 <body>
 
 <div class="setup-box no-print">
-    <h1>RPH: BOROS KADAZANDUSUN T1</h1>
-    <div class="grid-3">
-        <div><label>Tark (Tarikh)</label><input type="date" id="tark" onchange="updateDay()"></div>
-        <div><label>Tadau (Hari)</label><input type="text" id="hari" readonly></div>
-        <div><label>Minggu</label><select id="mng"></select></div>
-        <div><label>Timpu (Masa)</label><input type="text" id="masa" placeholder="Cth: 08:00 - 09:00"></div>
-    </div>
+    <h1 style="text-align:center; color:var(--p); margin-top:0;">BOROS KADAZANDUSUN TAHUN 1 (FULL DSKP + AI)</h1>
     
-    <div><label>Uhu (Tajuk)</label><input type="text" id="tajuk" placeholder="Masukkan Uhu / Tema"></div>
-
-    <div style="margin-top:15px">
-        <label>Standard Kandungan (SK)</label>
-        <select id="sk_select" onchange="loadSP()">
-            <option value="1.1">1.1 Mokinongou, popointutun om mangalapat tuni boros</option>
-            <option value="1.2">1.2 Mokinongou om popogirot kabaalan moboros</option>
-            <option value="1.3">1.3 Mokinongou om mamarati' mogisuusuai teks lisan</option>
-            <option value="2.1">2.1 Mambasa' miampai loyuk kopolombusan di kotunud</option>
-            <option value="2.2">2.2 Mambasa' montok mangarati' boros, frasa om ayat</option>
-            <option value="3.1">3.1 Monulis pimato, boros om ayat</option>
-            <option value="3.2">3.2 Monulis ayat miampai tumanud puralan boros</option>
-            <option value="4.1">4.1 Popokito kabaalan momili' boros id sinding/hiis</option>
-            <option value="5.1">5.1 Momoguno boros ngaran (Kata Nama)</option>
-            <option value="5.2">5.2 Momoguno boros maan (Kata Kerja)</option>
-        </select>
+    <div class="grid-header">
+        <div><label>Tarikh / Tark</label><input type="date" id="tark" onchange="updDay()"></div>
+        <div><label>Hari / Tadau</label><input type="text" id="hari" readonly></div>
+        <div><label>Minggu / Minggu</label><select id="mng"></select></div>
+        <div><label>Masa / Timpu</label><input type="text" id="masa" placeholder="Cth: 08:30 - 09:30"></div>
     </div>
 
-    <div style="margin-top:15px">
-        <label>Standard Pembelajaran (SP)</label>
-        <div class="sp-container"><table class="sp-table" id="sp-list"></table></div>
-    </div>
+    <label>Standard Kandungan (Pilih Satu)</label>
+    <select id="sk_select" onchange="loadSP()">
+        <option value="">-- PILIH SK DSKP T1 --</option>
+        <option value="1.1">1.1 Mokinongou, popointutun om mangalapat tuni boros</option>
+        <option value="1.2">1.2 Mokinongou om popogirot kabaalan moboros</option>
+        <option value="1.3">1.3 Mokinongou om mamarati' mogisuusuai teks lisan</option>
+        <option value="2.1">2.1 Mambasa' miampai loyuk kopolombusan di kotunud</option>
+        <option value="2.2">2.2 Mambasa' montok mangarati' boros, frasa om ayat</option>
+        <option value="2.3">2.3 Mambasa' montok popointalang idea</option>
+        <option value="3.1">3.1 Monulis pimato, boros om ayat</option>
+        <option value="3.2">3.2 Monulis ayat miampai tumanud puralan boros</option>
+        <option value="4.1">4.1 Popokito kabaalan momili' boros id sinding/hiis</option>
+        <option value="5.1">5.1 Momoguno boros ngaran (Kata Nama)</option>
+        <option value="5.2">5.2 Momoguno boros maan (Kata Kerja)</option>
+    </select>
 
-    <div style="margin-top:20px">
-        <label>Objektif / Aktiviti / Refleksi</label>
-        <textarea id="f_obj" placeholder="Objektif..." rows="2" style="margin-bottom:5px"></textarea>
-        <textarea id="f_act" placeholder="Aktiviti..." rows="3" style="margin-bottom:5px"></textarea>
-        <textarea id="f_ref" placeholder="Refleksi..." rows="2"></textarea>
+    <label style="display:block; margin-top:10px;">Standard Pembelajaran (Lengkap DSKP T1)</label>
+    <div class="sp-box" id="sp-list"></div>
+
+    <div class="ai-section">
+        <button class="btn-ai" onclick="generateSuperAI()">✨ JANA 15+ IDEA AI KADAZANDUSUN (CADANGAN RAWAK)</button>
+        <div class="ai-grid">
+            <textarea id="f_obj" placeholder="Objektif Balajaran..." rows="6"></textarea>
+            <textarea id="f_act" placeholder="Aktiviti PdPc..." rows="6"></textarea>
+        </div>
+        <textarea id="f_ref" placeholder="Refleksi / Impak..." rows="3" style="margin-top:10px;"></textarea>
     </div>
 
     <div class="action-btns">
-        <button class="btn-main" onclick="generateRPH()">JANA RPH</button>
+        <button class="btn-main" onclick="genRPH()">JANA RPH</button>
         <button class="btn-print" onclick="window.print()">CETAK RPH</button>
-        <button class="btn-clear" onclick="location.reload()">KOSONGKAN</button>
+        <button class="btn-reset" onclick="location.reload()">RESAIL</button>
     </div>
 </div>
 
 <div id="print-zone"></div>
 
 <script>
+// DATABASE DSKP LENGKAP BKD T1
 const spData = {
-    "1.1": ["1.1.1 Mokinongou, mangalapat om popointutun tuni vokal.","1.1.2 Mokinongou, mangalapat om popointutun tuni konsonan.","1.1.3 Mokinongou, mangalapat om popointutun tuni diftong."],
-    "1.2": ["1.2.1 Moboros tumanud timpu, kinoyonon om piobpinaayan.","1.2.2 Momoguno boros di kinituau id pibaabarasan."],
-    "1.3": ["1.3.1 Mokinongou om mamarati' susuyan toniba'.","1.3.2 Mokinongou om poposunud kawagu maklumat."],
-    "2.1": ["2.1.1 Mambasa' pimato vokal om konsonan.","2.1.2 Mambasa' suku boros, boros om ayat."],
-    "2.2": ["2.2.1 Mambasa' om mangarati' boros.","2.2.2 Mambasa' om mangarati' frasa.","2.2.3 Mambasa' om mangarati' ayat."],
-    "3.1": ["3.1.1 Monulis pimato vokal om konsonan.","3.1.2 Monulis suku boros, boros om ayat."],
-    "3.2": ["3.2.1 Monulis ayat tumanud puralan boros di kotunud."],
-    "4.1": ["4.1.1 Sinding/hiis: Mokinongou, monguhot om suminding.","4.1.2 Popokito kabaalan momili' boros di oulud."],
+    "1.1": ["1.1.1 Mokinongou, mangalapat om popointutun tuni vokal.","1.1.2 Mokinongou, mangalapat om popointutun tuni konsonan.","1.1.3 Mokinongou, mangalapat om popointutun tuni diftong.","1.1.4 Mokinongou, mangalapat om popointutun tuni kluster."],
+    "1.2": ["1.2.1 Moboros tumanud timpu, kinoyonon om piobpinaayan.","1.2.2 Momoguno boros di kinituau id pibaabarasan.","1.2.3 Poposunud maklumat tumanud uhu."],
+    "2.1": ["2.1.1 Mambasa' pimato vokal om konsonan.","2.1.2 Mambasa' suku boros, boros om ayat.","2.1.3 Mambasa' miampai loyuk di kotunud."],
+    "2.2": ["2.2.1 Mambasa' om mangarati' boros.","2.2.2 Mambasa' om mangarati' frasa.","2.2.3 Mambasa' om mangarati' ayat toniba'."],
+    "3.1": ["3.1.1 Monulis pimato vokal om konsonan miampai oulud.","3.1.2 Monulis suku boros, boros om ayat."],
     "5.1": ["5.1.1 Momoguno boros ngaran tumanud konteks.","5.1.2 Momoguno boros ganti ngaran diri."],
     "5.2": ["5.2.1 Momoguno boros maan tumanud konteks."]
 };
 
-let selectedSP = [];
-const mngSelect = document.getElementById('mng');
-for(let i=1; i<=42; i++) mngSelect.innerHTML += `<option value="${i}">Minggu ${i}</option>`;
+const objPool = [
+    "Id koutuson balajaran, tangaanak kaanu: Popointutun 5 tuni vokal miampai kotunud.",
+    "Id koutuson balajaran, tangaanak kaanu: Mambasa' 3 ayat toniba' miampai loyuk di kitoilaan.",
+    "Id koutuson balajaran, tangaanak kaanu: Monulis pimato vokal om konsonan miampai oulud.",
+    "Id koutuson balajaran, tangaanak kaanu: Moboros miampai momoguno boros kinituau di kohunung.",
+    "Id koutuson balajaran, tangaanak kaanu: Mangalapat tuni diftong id boros di pinointutun.",
+    "Id koutuson balajaran, tangaanak kaanu: Mamarati' om monoroiyit gambar tumanud uhu.",
+    "Id koutuson balajaran, tangaanak kaanu: Momili' boros ngaran di kotunud id ayat.",
+    "Id koutuson balajaran, tangaanak kaanu: Suminding sinding Kadazandusun miampai loyuk di pointunud.",
+    "Id koutuson balajaran, tangaanak kaanu: Monumbuluk boros montok poposunud idea.",
+    "Id koutuson balajaran, tangaanak kaanu: Mambasa' suku boros miampai lancar.",
+    "Id koutuson balajaran, tangaanak kaanu: Monulis boros tumanud gambar di pinointutun.",
+    "Id koutuson balajaran, tangaanak kaanu: Poposunud kawagu maklumat di norongou.",
+    "Id koutuson balajaran, tangaanak kaanu: Mokinongou om mamagatang kolumison boros.",
+    "Id koutuson balajaran, tangaanak kaanu: Momoguno boros maan di kotunud id ayat.",
+    "Id koutuson balajaran, tangaanak kaanu: Mangarati' frasa toniba' id buuk bacaan."
+];
 
-function updateDay() {
-    const d = new Date(document.getElementById('tark').value);
-    document.getElementById('hari').value = ["Ahad","Isnin","Selasa","Rabu","Khamis","Jumaat","Sabtu"][d.getDay()] || "";
-}
+const actPool = [
+    "1. Mokinongou audio tuni vokal/konsonan. 2. Mangalapat tuni miampai dilo tinimungan. 3. Momili' kad gambar di kohunung.",
+    "1. Mambasa' pimato id buuk teks. 2. Mambasa' secara berpasangan (Peer Reading). 3. Aktiviti 'Mambasa' id stesen'.",
+    "1. Moniru monulis pimato id buuk ponulisan. 2. Monulis pimato id atas pasir (multisensori). 3. Lembaran karaja.",
+    "1. Suminding sinding tema Kadazandusun. 2. Momili' kosa kata baharu mantad sinding. 3. Aktiviti 'Teka Tuni'.",
+    "1. Pibaabarasan tumanud gambar. 2. Murid moboros kawagu istilah di pinointutun. 3. Simulasi moboros miampai kinituau.",
+    "1. Menonton video pendek. 2. Murid mencatat boros maan di unik. 3. Kuiz lisan.",
+    "1. Persembahan kad imbasan (flash cards). 2. Murid menyusun suku boros menjadi boros lengkap. 3. Permainan 'Sada om Jaring'.",
+    "1. Aktiviti 'Gallery Walk' hasil ponulisan. 2. Murid manahak 'sticker' montok kinalantayon rakan. 3. Refleksi guru."
+];
 
+const refPool = [
+    "28/30 tangaanak kaanu mangalapat tuni miampai oulud.",
+    "PdPc pinitahan tu soira nokoindalan o program sikul.",
+    "Tangaanak sanganu ginawo do mokinongou sinding BKD.",
+    "Sebahagian tangaanak kiguna do bimbingan lobi oulud id mambasa'.",
+    "Objektif naaba, tangaanak lobi kitoilaan id pibaabarasan.",
+    "Tangaanak gaga' do monulis pimato miampai oulud.",
+    "PdPc nokoindalan miampai kinalantayon di agayo.",
+    "Tangaanak kaanu mamarati' uhu balajaran diti."
+];
+
+let selSP = [];
+for(let i=1;i<=42;i++) document.getElementById('mng').innerHTML += `<option value="${i}">Minggu ${i}</option>`;
+function updDay() { const d = new Date(document.getElementById('tark').value); document.getElementById('hari').value = ["Ahad","Isnin","Selasa","Rabu","Khamis","Jumaat","Sabtu"][d.getDay()]; }
 function loadSP() {
-    const sk = document.getElementById('sk_select').value;
-    const table = document.getElementById('sp-list');
-    table.innerHTML = ""; selectedSP = [];
-    spData[sk]?.forEach(s => {
-        let r = table.insertRow();
-        r.onclick = function() {
-            this.classList.toggle('selected-row');
-            if(this.classList.contains('selected-row')) selectedSP.push(s);
-            else selectedSP = selectedSP.filter(i => i !== s);
-        };
-        r.innerHTML = `<td>${s}</td>`;
+    const sk = document.getElementById('sk_select').value; const box = document.getElementById('sp-list'); box.innerHTML = ""; selSP = [];
+    if(spData[sk]) spData[sk].forEach(s => {
+        let d = document.createElement('div'); d.className = 'sp-item'; d.innerText = s;
+        d.onclick = function() { this.classList.toggle('selected'); if(this.classList.contains('selected')) selSP.push(s); else selSP = selSP.filter(x=>x!==s); };
+        box.appendChild(d);
     });
 }
-loadSP();
 
-function generateRPH() {
-    const skTxt = document.getElementById('sk_select').options[document.getElementById('sk_select').selectedIndex].text;
+function generateSuperAI() {
+    if(!document.getElementById('sk_select').value) return alert("Pilih SK dulu bos!");
+    document.getElementById('f_obj').value = objPool[Math.floor(Math.random()*objPool.length)];
+    document.getElementById('f_act').value = actPool[Math.floor(Math.random()*actPool.length)];
+    document.getElementById('f_ref').value = refPool[Math.floor(Math.random()*refPool.length)];
+}
+
+function genRPH() {
+    if(selSP.length === 0) return alert("Pilih sekurang-kurangnya satu SP!");
     const content = `
     <div class="rph-paper">
-        <div class="rph-header">
-            <h1 style="margin:0;font-size:20px">RANCANGAN PENGAJARAN HARIAN</h1>
-            <h2 style="margin:0;font-size:18px">BOROS KADAZANDUSUN TAHUN 1</h2>
+        <div style="text-align:center; border-bottom:4px double #000; padding-bottom:5px;">
+            <h1 style="margin:0; font-size:20px;">RPH BOROS KADAZANDUSUN TAHUN 1</h1>
+            <h2 style="margin:0; font-size:16px;">EDISI DIGITAL ANDREW ARID</h2>
         </div>
-        <table class="meta-table">
-            <tr>
-                <td>TARIKH: ${document.getElementById('tark').value}</td>
-                <td>TADAU (HARI): ${document.getElementById('hari').value}</td>
-                <td>MINGGU: ${document.getElementById('mng').value}</td>
-            </tr>
-            <tr>
-                <td colspan="2">TIMPU (MASA): ${document.getElementById('masa').value}</td>
-                <td>GURU: ANDREW ARID</td>
-            </tr>
+        <table class="m-table" style="margin-top:20px;">
+            <tr><td>TARK (TARIKH): ${document.getElementById('tark').value}</td><td>TADAU (HARI): ${document.getElementById('hari').value}</td><td>MINGGU: ${document.getElementById('mng').value}</td></tr>
+            <tr><td colspan="2">TIMPU (MASA): ${document.getElementById('masa').value}</td><td>MONUDU (GURU): ANDREW ARID</td></tr>
         </table>
-        <table class="main-table">
-            <tr><td class="label-cell">UHU (TAJUK)</td><td>${document.getElementById('tajuk').value}</td></tr>
-            <tr><td class="label-cell">STANDARD KANDUNGAN</td><td>${skTxt}</td></tr>
-            <tr><td class="label-cell">STANDARD PEMBELAJARAN</td><td style="font-weight:bold">${selectedSP.join("<br>")}</td></tr>
-            <tr><td class="label-cell">OBJEKTIF PEMBELAJARAN</td><td>${document.getElementById('f_obj').value.replace(/\n/g,"<br>")}</td></tr>
-            <tr><td class="label-cell">AKTIUITI PdPc</td><td>${document.getElementById('f_act').value.replace(/\n/g,"<br>")}</td></tr>
-            <tr><td class="label-cell">REFLEKSI</td><td>${document.getElementById('f_ref').value.replace(/\n/g,"<br>")}</td></tr>
+        <table class="m-table" style="margin-top:15px;">
+            <tr><td class="label">SK</td><td>${document.getElementById('sk_select').options[document.getElementById('sk_select').selectedIndex].text}</td></tr>
+            <tr><td class="label">SP</td><td style="font-weight:bold">${selSP.join('<br>')}</td></tr>
+            <tr><td class="label">OBJEKTIF BALAJARAN</td><td>${document.getElementById('f_obj').value.replace(/\n/g,'<br>')}</td></tr>
+            <tr><td class="label">AKTIUITI PdPc</td><td>${document.getElementById('f_act').value.replace(/\n/g,'<br>')}</td></tr>
+            <tr><td class="label">REFLEKSI</td><td>${document.getElementById('f_ref').value.replace(/\n/g,'<br>')}</td></tr>
         </table>
     </div>`;
     document.getElementById('print-zone').innerHTML += content;
