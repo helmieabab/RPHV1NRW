@@ -2,193 +2,197 @@
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
-    <title>RPH BM T4 - ANDREW ARID</title>
+    <title>BM T4 DSKP MUTLAK - ANDREW ARID</title>
     <style>
         :root { --p: #003366; --ai-obj: #2980b9; --ai-act: #8e44ad; --ai-ref: #16a085; --bg: #f0f2f5; }
         body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); padding: 20px; }
         .setup-box { max-width: 1200px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 10px solid var(--p); }
         
         .header-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 20px; background: #f8f9fa; padding: 15px; border-radius: 10px; border: 1px solid #eee; }
-        label { font-weight: bold; color: var(--p); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
-        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; box-sizing: border-box; transition: 0.3s; }
-        input:focus, select:focus, textarea:focus { border-color: var(--p); outline: none; box-shadow: 0 0 8px rgba(0,51,102,0.2); }
+        label { font-weight: bold; color: var(--p); font-size: 11px; text-transform: uppercase; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; box-sizing: border-box; }
 
-        .sp-box { border: 1px solid #ddd; border-radius: 8px; max-height: 180px; overflow-y: auto; background: #fff; margin-top: 5px; }
+        .sp-box { border: 1px solid #ddd; border-radius: 8px; max-height: 250px; overflow-y: auto; background: #fff; margin: 10px 0; }
         .sp-item { padding: 12px; cursor: pointer; border-bottom: 1px solid #eee; font-size: 13px; transition: 0.2s; }
         .sp-item:hover { background: #f1f7ff; }
         .selected { background: #e3f2fd !important; font-weight: bold; border-left: 6px solid var(--p); color: var(--p); }
 
-        /* AI Suggestion Buttons */
-        .ai-group { background: #fff; padding: 18px; border: 1px solid #e8e8e8; border-radius: 12px; margin-top: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .btn-ai { border: none; color: white; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 12px; margin-bottom: 12px; display: inline-block; box-shadow: 0 3px 0 rgba(0,0,0,0.1); }
+        .ai-section { background: #fff; padding: 20px; border: 1px solid #e8e8e8; border-radius: 12px; margin-top: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .btn-ai { border: none; color: white; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 12px; margin-bottom: 10px; transition: 0.3s; box-shadow: 0 4px 0 rgba(0,0,0,0.1); }
         .btn-obj { background: var(--ai-obj); }
         .btn-act { background: var(--ai-act); }
         .btn-ref { background: var(--ai-ref); }
         .btn-ai:active { transform: translateY(2px); box-shadow: none; }
 
-        /* Bottom Action Buttons */
-        .hub-actions { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 35px; border-top: 2px solid #eee; padding-top: 25px; }
-        .btn-hub { border: none; padding: 18px; border-radius: 10px; color: white; font-weight: bold; cursor: pointer; text-align: center; font-size: 13px; text-transform: uppercase; transition: 0.3s; box-shadow: 0 4px 0 rgba(0,0,0,0.1); }
-        .bg-jana { background: var(--p); }
-        .bg-save { background: #27ae60; }
-        .bg-print { background: #34495e; }
-        .bg-clear { background: #e67e22; }
-        .bg-home { background: #7f8c8d; }
-        .btn-hub:hover { opacity: 0.9; transform: translateY(-2px); }
+        .hub-actions { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 30px; border-top: 2px solid #eee; padding-top: 25px; }
+        .btn-hub { border: none; padding: 18px; border-radius: 10px; color: white; font-weight: bold; cursor: pointer; text-align: center; font-size: 11px; text-transform: uppercase; transition: 0.3s; }
+        .bg-jana { background: var(--p); } .bg-save { background: #27ae60; } .bg-print { background: #34495e; } .bg-clear { background: #e67e22; } .bg-home { background: #7f8c8d; }
 
-        /* PROFESSIONAL PRINT VIEW */
-        .rph-paper { width: 210mm; min-height: 297mm; padding: 15mm; margin: 40px auto; background: white; border: 1px solid #ccc; box-sizing: border-box; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+        /* PRINT STYLE PRO */
+        .rph-paper { width: 210mm; min-height: 290mm; padding: 15mm; margin: 40px auto; background: white; border: 1px solid #000; box-sizing: border-box; }
         .print-header { text-align: center; border-bottom: 4px double #000; padding-bottom: 10px; margin-bottom: 20px; }
-        .m-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        .m-table td { border: 1px solid #000; padding: 12px; font-size: 14px; vertical-align: top; line-height: 1.5; }
-        .l-cell { background: #f9f9f9 !important; font-weight: bold; width: 28%; text-transform: uppercase; font-size: 12px; }
-        .val-cell { color: #000; }
-        .act-step { display: block; margin-bottom: 8px; border-bottom: 1px dashed #eee; padding-bottom: 4px; }
+        .m-table { width: 100%; border-collapse: collapse; }
+        .m-table td { border: 1px solid #000; padding: 12px; font-size: 14px; vertical-align: top; line-height: 1.6; }
+        .l-cell { background: #f2f2f2 !important; font-weight: bold; width: 25%; font-size: 12px; text-transform: uppercase; }
+        .act-step { display: block; margin-bottom: 8px; border-bottom: 1px dashed #ddd; padding-bottom: 4px; }
 
-        @media print { 
-            .no-print { display: none; } 
-            body { background: white; padding: 0; }
-            .rph-paper { margin: 0; border: none; box-shadow: none; width: 100%; } 
-            .act-step { border-bottom: none; }
-        }
+        @media print { .no-print { display: none; } body { background: white; padding: 0; } .rph-paper { margin: 0; border: none; width: 100%; } }
     </style>
 </head>
 <body>
 
 <div class="setup-box no-print">
-    <h2 style="text-align:center; color:var(--p); margin-top:0;">BM TAHUN 4: SISTEM RPH SMART-CONTEXT (PRO)</h2>
+    <h2 style="text-align:center; color:var(--p); margin:0 0 20px 0;">BM TAHUN 4: SISTEM RPH DSKP MUTLAK</h2>
     
     <div class="header-grid">
-        <div><label>Tarikh / Tark</label><input type="date" id="tark" onchange="updDay()"></div>
-        <div><label>Hari / Tadau</label><input type="text" id="hari" readonly></div>
-        <div><label>Minggu / Minggu</label><select id="mng"></select></div>
-        <div><label>Masa / Timpu</label><input type="text" id="masa" placeholder="Cth: 08:00 - 09:00"></div>
+        <div><label>Tarikh</label><input type="date" id="tark" onchange="updDay()"></div>
+        <div><label>Hari</label><input type="text" id="hari" readonly></div>
+        <div><label>Minggu</label><select id="mng"></select></div>
+        <div><label>Masa</label><input type="text" id="masa" placeholder="Cth: 07:30 - 08:30"></div>
     </div>
 
-    <label>Pilih Standard Kandungan (SK)</label>
+    <label>Pilih Standard Kandungan (Tahun 4)</label>
     <select id="sk_select" onchange="loadSP()">
         <option value="">-- SILA PILIH SK DSKP T4 --</option>
-        <optgroup label="Lisan">
+        <optgroup label="1.0 Mendengar dan Bertutur">
             <option value="1.1">1.1 Mendengar dan memberikan respons</option>
             <option value="1.2">1.2 Bertutur menyampaikan maklumat</option>
+            <option value="1.3">1.3 Bercerita dan menceritakan perkara</option>
         </optgroup>
-        <optgroup label="Membaca">
+        <optgroup label="2.0 Membaca">
             <option value="2.1">2.1 Asas membaca dan memahami</option>
-            <option value="2.2">2.2 Membaca, memahami, menaakul</option>
+            <option value="2.2">2.2 Membaca, memahami dan menaakul</option>
+            <option value="2.3">2.3 Membaca dan mengapresiasi karya</option>
         </optgroup>
-        <optgroup label="Menulis">
+        <optgroup label="3.0 Menulis">
             <option value="3.1">3.1 Asas menulis</option>
-            <option value="3.2">3.2 Menulis perkataan, frasa, dan ayat</option>
-            <option value="3.3">3.3 Menghasilkan penulisan</option>
+            <option value="3.2">3.2 Menulis perkataan, frasa dan ayat</option>
+            <option value="3.3">3.3 Menghasilkan penulisan kreatif</option>
         </optgroup>
-        <optgroup label="Tatabahasa">
+        <optgroup label="4.0 Seni Bahasa">
+            <option value="4.1">4.1 Mengaplikasikan unsur keindahan bahasa</option>
+            <option value="4.2">4.2 Menghayati keindahan bahasa (Puisi/Lagu)</option>
+            <option value="4.3">4.3 Menghasilkan bahan kreatif bercerita</option>
+            <option value="4.4">4.4 Mengenal seni tulisan khat/jawi</option>
+        </optgroup>
+        <optgroup label="5.0 Tatabahasa">
             <option value="5.1">5.1 Memahami dan menggunakan golongan kata</option>
+            <option value="5.2">5.2 Memahami dan menggunakan pembentukan kata</option>
+            <option value="5.3">5.3 Memahami dan membina pelbagai jenis ayat</option>
         </optgroup>
     </select>
 
     <div class="sp-box" id="sp-list"></div>
 
-    <div class="ai-group">
-        <button class="btn-ai btn-obj" onclick="getSmartAI('obj')">✨ CADANGAN OBJEKTIF (CONTEXT AI)</button>
-        <textarea id="f_obj" placeholder="Klik butang di atas untuk jana objektif..." rows="2"></textarea>
+    <div class="ai-section">
+        <button class="btn-ai btn-obj" onclick="getUltraAI('obj')">✨ JANA OBJEKTIF (20 PILIHAN)</button>
+        <textarea id="f_obj" rows="2"></textarea>
     </div>
 
-    <div class="ai-group">
-        <button class="btn-ai btn-act" onclick="getSmartAI('act')">🚀 CADANGAN AKTIVITI (SENARAI KE BAWAH)</button>
-        <textarea id="f_act" placeholder="Idea aktiviti akan disenaraikan mengikut langkah..." rows="6"></textarea>
+    <div class="ai-section">
+        <button class="btn-ai btn-act" onclick="getUltraAI('act')">🚀 JANA AKTIVITI (20 PILIHAN)</button>
+        <textarea id="f_act" rows="8"></textarea>
     </div>
 
-    <div class="ai-group">
-        <button class="btn-ai btn-ref" onclick="getSmartAI('ref')">📝 CADANGAN REFLEKSI</button>
-        <textarea id="f_ref" placeholder="Refleksi pengajaran..." rows="2"></textarea>
+    <div class="ai-section">
+        <button class="btn-ai btn-ref" onclick="getUltraAI('ref')">📝 JANA REFLEKSI (20 PILIHAN)</button>
+        <textarea id="f_ref" rows="2"></textarea>
     </div>
 
     <div class="hub-actions">
         <button class="btn-hub bg-jana" onclick="genRPH()">JANA RPH</button>
-        <button class="btn-hub bg-save" onclick="alert('RPH Berjaya Disimpan!')">SIMPAN</button>
-        <button class="btn-hub bg-print" onclick="window.print()">CETAK / PDF</button>
-        <button class="btn-hub bg-clear" onclick="location.reload()">CLEAR ALL</button>
-        <button class="btn-hub bg-home" onclick="goToHub()">KEMBALI KE HUB</button>
+        <button class="btn-hub bg-save" onclick="alert('RPH Disimpan!')">SIMPAN</button>
+        <button class="btn-hub bg-print" onclick="window.print()">CETAK</button>
+        <button class="btn-hub bg-clear" onclick="location.reload()">RESAIL</button>
+        <button class="btn-hub bg-home" onclick="location.href='index.html'">HUB UTAMA</button>
     </div>
 </div>
 
 <div id="print-zone"></div>
 
 <script>
-// DATA DSKP & AI POOL
-const spData = {
-    "1.1": ["1.1.1 Mendengar, mengecam sebutan, dan menyebut semula istilah.","1.1.2 Mendengar dan memberi respons terhadap perintah.","1.1.3 Mendengar dan memberikan respons terhadap soalan."],
-    "2.1": ["2.1.1 Membaca dan memahami petikan dengan sebutan betul.","2.2.1 Membaca dan menaakul bahan multimedia."],
-    "3.2": ["3.2.1 Membina dan menulis ayat tunggal serta ayat majmuk.","3.2.2 Menghasilkan jawapan pemahaman berdasarkan teks."],
-    "5.1": ["5.1.1 Memahami dan menggunakan kata nama mengikut konteks.","5.1.2 Memahami dan menggunakan kata kerja."]
+// PANGKALAN DATA DSKP T4 LENGKAP
+const dskpT4 = {
+    "1.1": ["1.1.1 Mendengar, mengecam sebutan dan menyebut semula istilah.","1.1.2 Mendengar, memahami dan memberi respons terhadap arahan.","1.1.3 Mendengar, mentafsir dan memberikan respons terhadap soalan."],
+    "1.2": ["1.2.1 Bertutur dengan sebutan betul dan intonasi sesuai.","1.2.2 Menjelaskan dan membanding beza maklumat tersurat.","1.2.3 Bersoal jawab untuk mendapatkan maklumat."],
+    "1.3": ["1.3.1 Bercerita dengan sebutan dan intonasi yang sesuai.","1.3.2 Menceritakan sesuatu bahan yang ditonton dengan tepat."],
+    "2.1": ["2.1.1 Membaca dan memahami petikan dengan sebutan betul.","2.2.1 Membaca dan memahami bahan grafik serta bukan grafik.","2.3.1 Membaca dan mengenal pasti kandungan teks kreatif."],
+    "2.2": ["2.2.1 Membaca dan memahami ayat majmuk dalam petikan.","2.3.2 Membaca karya sastera dan karya bukan sastera."],
+    "3.1": ["3.1.1 Menulis secara mekanis tulisan berangkai yang kemas."],
+    "3.2": ["3.2.1 Membina ayat tunggal dan ayat majmuk dengan betul.","3.2.2 Menghasilkan jawapan pemahaman yang lengkap.","3.2.3 Mencatat maklumat dalam bentuk peta pemikiran.","3.2.4 Menulis imlak perkataan dan frasa."],
+    "3.3": ["3.3.1 Menghasilkan penulisan berformat/tidak berformat.","3.3.2 Mengedit dan memurnikan hasil penulisan."],
+    "4.1": ["4.1.1 Bercerita dan mengujarkan dialog yang mengandungi peribahasa.","4.2.1 Melafazkan dan menjelaskan maksud pantun secara didik hibur.","4.3.1 Mengubah suai puisi secara berpandu."],
+    "5.1": ["5.1.1 Memahami dan menggunakan kata nama mengikut konteks.","5.1.2 Memahami dan menggunakan kata kerja mengikut konteks.","5.1.3 Memahami dan menggunakan kata adjektif mengikut konteks.","5.1.4 Memahami dan menggunakan kata tugas (kata hubung/sendi)."],
+    "5.2": ["5.2.1 Memahami dan menggunakan kata ganda.","5.2.2 Memahami dan menggunakan kata berimbuhan awalan/akhiran.","5.2.3 Memahami dan menggunakan kata majmuk."],
+    "5.3": ["5.3.1 Memahami dan membina ayat penyata, tanya, dan perintah."]
 };
 
-const smartAI = {
-    "1.1": { 
-        obj: ["Murid dapat menyebut 5 istilah dengan sebutan betul.","Murid dapat memberi respons terhadap 3 ayat perintah."],
-        act: ["1. Mendengar rakaman audio dialog.\n2. Permainan Telefon Karat.\n3. Sesi soal jawab lisan.","1. Simulasi ayat perintah.\n2. Murid melakukan tugasan mengikut arahan lisan.\n3. Rumusan aktiviti."]
+// ULTRA AI 20 IDEA UNTUK T4
+const ultraAI = {
+    "1": { 
+        obj: ["Murid dapat menyebut 5 istilah bertema dengan betul.","Murid dapat memberi respons terhadap 3 arahan guru.","Murid dapat menjawab 3 soalan pemahaman lisan.","Murid dapat menceritakan semula plot video pendek.","Murid dapat menjelaskan maklumat dari poster.","Murid dapat berdialog menggunakan bahasa sopan.","Murid dapat mengecam intonasi ayat perintah.","Murid dapat menyebut semula 3 pengumuman sekolah.","Murid dapat membina 2 soalan untuk temu ramah.","Murid dapat menyampaikan maklumat dalam kumpulan.","Murid dapat mengecam sebutan kata pinjaman.","Murid dapat bertutur dengan gaya yang yakin.","Murid dapat memadankan gambar dengan huraian lisan.","Murid dapat memberikan 2 idea tambahan dalam dialog.","Murid dapat mengenal pasti maksud kosa kata lisan.","Murid dapat melakonkan watak dalam situasi harian.","Murid dapat menyatakan isi tersurat dari rakaman.","Murid dapat mengelaskan maklumat yang didengar.","Murid dapat memberikan alasan bagi sesuatu tindakan.","Murid dapat merumuskan mesej utama cerita."],
+        act: ["1. Aktiviti 'Listen and Draw'.\n2. Sesi soal jawab secara spontan.\n3. Permainan simulasi arahan.\n4. Rumusan pengajaran.","1. Menonton video pendek.\n2. Aktiviti 'Think-Pair-Share' maklumat.\n3. Pembentangan hasil dapatan.\n4. Penutup refleksi.","1. Permainan 'Telefon Karat'.\n2. Murid membina ayat lisan.\n3. Sesi lakonan dialog pendek.\n4. Penilaian rakan sebaya.","1. Mendengar audio dialog.\n2. Mengisi tempat kosong dalam teks.\n3. Perbincangan 'Round Table'.\n4. Kesimpulan guru."]
     },
-    "2.1": {
-        obj: ["Murid dapat membaca petikan dengan kelancaran yang baik.","Murid dapat menjelaskan maksud 3 kosa kata baharu."],
-        act: ["1. Bacaan mekanis secara kelas.\n2. Mencari kosa kata dalam kamus.\n3. Menjawab kuiz kefahaman.\n4. Pembentangan kumpulan."]
+    "2": { 
+        obj: ["Murid dapat membaca petikan dengan sebutan jelas.","Murid dapat mengenal pasti 3 isi penting teks.","Murid dapat menjelaskan makna 3 kata sukar.","Murid dapat melengkapkan peta minda bacaan.","Murid dapat merumuskan nilai murni dalam cerita.","Murid dapat membandingkan 2 watak dalam teks.","Murid dapat membaca teks secara imbasan.","Murid dapat menjawab 5 soalan kefahaman.","Murid dapat mengenal pasti fakta dan pendapat.","Murid dapat membaca pantun dengan intonasi betul.","Murid dapat menaakul isi tersirat dalam petikan.","Murid dapat mencari maklumat dalam kamus.","Murid dapat menyebut ayat majmuk dengan lancar.","Murid dapat menghubungkaitkan gambar dengan teks.","Murid dapat mengulas tajuk berita harian.","Murid dapat menyusun urutan peristiwa cerita.","Murid dapat mengenal pasti laras bahasa sastera.","Murid dapat membina soalan dari bahan grafik.","Murid dapat meramalkan kesudahan cerita.","Murid dapat membaca teks manual dengan tepat."],
+        act: ["1. Bacaan mekanis beramai-ramai.\n2. Aktiviti 'Word Hunt' kata sukar.\n3. Menjawab soalan kuiz digital.\n4. Penutup.","1. Aktiviti 'Gallery Walk' maklumat.\n2. Melukis peta i-Think isi penting.\n3. Sesi soal jawab kritis.\n4. Refleksi bacaan.","1. Teknik bacaan 'Partner Reading'.\n2. Menanda kata kunci penting.\n3. Aktiviti 'Jigsaw Reading'.\n4. Rumusan PdPc.","1. Membaca teks arahan.\n2. Melakukan tugasan mengikut teks.\n3. Perbincangan 'Numbered Heads Together'.\n4. Penilaian kendiri."]
     },
-    "3.2": {
-        obj: ["Murid dapat membina 5 ayat majmuk menggunakan kata hubung.","Murid dapat menulis jawapan pemahaman yang lengkap."],
-        act: ["1. Meneliti gambar rangsangan.\n2. Aktiviti Sentence Scramble.\n3. Menulis jawapan dalam buku latihan.\n4. Semakan rakan sebaya."]
+    "3": { 
+        obj: ["Murid dapat membina 5 ayat tunggal yang lengkap.","Murid dapat menulis karangan pendek berpandu.","Murid dapat menulis imlak 10 perkataan.","Murid dapat menghasilkan tulisan berangkai kemas.","Murid dapat membetulkan 5 kesalahan ejaan.","Murid dapat menulis jawapan pemahaman yang tepat.","Murid dapat mencatat maklumat dalam peta alir.","Murid dapat membina 3 ayat majmuk gramatis.","Murid dapat menghasilkan ulasan gambar rajah.","Murid dapat menulis catatan harian ringkas.","Murid dapat mengedit tanda baca dalam ayat.","Murid dapat menghasilkan draf penulisan.","Murid dapat menulis sajak pendek 2 rangkap.","Murid dapat membina ayat menggunakan kata ganda.","Murid dapat menulis pesanan ringkas (memo).","Murid dapat melengkapkan petikan dengan kata kerja.","Murid dapat menulis ulasan nilai murni petikan.","Murid dapat membina ayat tanya menggunakan kata tanya.","Murid dapat menghasilkan kad ucapan kreatif.","Murid dapat menulis rumusan isi tersurat."],
+        act: ["1. Meneliti gambar bersiri.\n2. Aktiviti 'Brainstorming' kosa kata.\n3. Menulis draf karangan.\n4. Semakan rakan sebaya.","1. Permainan 'Sentence Race'.\n2. Murid membina ayat di papan putih.\n3. Latihan dalam buku aktiviti.\n4. Penilaian guru.","1. Aktiviti 'Sentence Surgery'.\n2. Membaiki kesalahan struktur ayat.\n3. Menulis semula petikan yang diedit.\n4. Rumusan.","1. Bengkel tulisan berangkai.\n2. Pertandingan tulisan tercantik.\n3. Murid menghasilkan kad kata.\n4. Penutup dan pujian."]
     },
-    "ref": ["30/32 murid mencapai objektif.","PdPc berjalan lancar dan murid aktif.","Objektif tercapai, murid seronok dengan aktiviti AI."]
+    "ref": [
+        "30/32 murid capai objektif, 2 bimbingan.","PdPc berjalan lancar dan murid aktif.","Objektif tercapai melalui aktiviti PAK-21.","Murid sangat berminat dengan aktiviti digital.","Perlu penekanan pada ejaan dan tanda baca.","Kekuatan: Murid berani mencuba berdialog.","Sebahagian murid perlukan bimbingan membaca.","PdPc ditangguhkan ke tarikh lain.","Aktiviti kumpulan sangat memberangsangkan.","Murid dapat menggunakan kata nama dengan betul.","Hasil kerja tulisan murid semakin kemas.","Fokus esok: Membina ayat majmuk.","Murid seronok dengan permainan bahasa.","90% murid dapat menjawab soalan KBAT.","Guru perlu mempelbagaikan teknik bercerita.","Refleksi: Masa aktiviti perlu dipanjangkan.","Murid menunjukkan nilai kerjasama yang tinggi.","Respon murid terhadap video sangat positif.","PdPc mencapai sasaran yang ditetapkan.","Penyertaan murid secara aktif 100%."]
 };
 
-// LOGIK SISTEM
 for(let i=1;i<=42;i++) document.getElementById('mng').innerHTML += `<option value="${i}">Minggu ${i}</option>`;
 function updDay() { const d = new Date(document.getElementById('tark').value); document.getElementById('hari').value = ["Ahad","Isnin","Selasa","Rabu","Khamis","Jumaat","Sabtu"][d.getDay()]; }
-function goToHub() { window.location.href = 'index.html'; } // Pastikan nama fail hub cikgu betul
 
-let selSP = [];
 function loadSP() {
     const sk = document.getElementById('sk_select').value;
-    const box = document.getElementById('sp-list'); box.innerHTML = ""; selSP = [];
-    if(spData[sk]) spData[sk].forEach(s => {
+    const box = document.getElementById('sp-list'); box.innerHTML = "";
+    if(dskpT4[sk]) dskpT4[sk].forEach(s => {
         let d = document.createElement('div'); d.className = 'sp-item'; d.innerText = s;
-        d.onclick = function() { this.classList.toggle('selected'); if(this.classList.contains('selected')) selSP.push(s); else selSP = selSP.filter(x=>x!==s); };
+        d.onclick = function() { this.classList.toggle('selected'); };
         box.appendChild(d);
     });
 }
 
-function getSmartAI(type) {
-    const sk = document.getElementById('sk_select').value;
-    if(!sk && type !== 'ref') return alert("Sila pilih SK dahulu!");
-    let pool = (type === 'ref') ? smartAI.ref : (smartAI[sk] && smartAI[sk][type]) ? smartAI[sk][type] : ["Pilih SK yang lain."];
+function getUltraAI(type) {
+    const skValue = document.getElementById('sk_select').value;
+    if(!skValue && type !== 'ref') return alert("Pilih SK dahulu!");
+    
+    let key = skValue.charAt(0);
+    if(key == "4" || key == "5") key = "3";
+    
+    let pool = (type === 'ref') ? ultraAI.ref : ultraAI[key][type];
     document.getElementById('f_'+type).value = pool[Math.floor(Math.random()*pool.length)];
 }
 
 function genRPH() {
-    if(selSP.length === 0) return alert("Pilih SP dahulu!");
-    
-    // Format Aktiviti kepada List Menegak
-    const rawAct = document.getElementById('f_act').value;
-    const formattedAct = rawAct.split('\n').map(step => `<span class="act-step">${step}</span>`).join('');
+    let sel = Array.from(document.querySelectorAll('.sp-item.selected')).map(x => x.innerText);
+    if(sel.length===0) return alert("Pilih SP DSKP!");
+    const formattedAct = document.getElementById('f_act').value.split('\n').map(s => `<span class="act-step">${s}</span>`).join('');
 
-    const content = `
+    document.getElementById('print-zone').innerHTML = `
     <div class="rph-paper">
         <div class="print-header">
-            <h1 style="margin:0; font-size:22px; color:#000;">RANCANGAN PENGAJARAN HARIAN</h1>
-            <h3 style="margin:5px 0; color:#444;">BAHASA MELAYU TAHUN 4</h3>
+            <h1 style="margin:0;">RANCANGAN PENGAJARAN HARIAN (E-RPH)</h1>
+            <h3 style="margin:5px 0;">BAHASA MELAYU TAHUN 4</h3>
         </div>
         <table class="m-table">
-            <tr><td class="l-cell">TARIKH / MINGGU</td><td class="val-cell">${document.getElementById('tark').value} | MINGGU ${document.getElementById('mng').value}</td><td class="l-cell">HARI</td><td class="val-cell">${document.getElementById('hari').value}</td></tr>
-            <tr><td class="l-cell">MASA</td><td class="val-cell">${document.getElementById('masa').value}</td><td class="l-cell">GURU</td><td class="val-cell">ANDREW ARID</td></tr>
+            <tr><td class="l-cell">TARIKH | MINGGU</td><td>${document.getElementById('tark').value} | M${document.getElementById('mng').value}</td><td class="l-cell">HARI</td><td>${document.getElementById('hari').value}</td></tr>
+            <tr><td class="l-cell">MASA</td><td>${document.getElementById('masa').value}</td><td class="l-cell">GURU</td><td>ANDREW ARID</td></tr>
         </table>
-        <table class="m-table">
-            <tr><td class="l-cell">STANDARD KANDUNGAN</td><td class="val-cell">${document.getElementById('sk_select').options[document.getElementById('sk_select').selectedIndex].text}</td></tr>
-            <tr><td class="l-cell">STANDARD PEMBELAJARAN</td><td class="val-cell"><b>${selSP.join('<br>')}</b></td></tr>
-            <tr><td class="l-cell">OBJEKTIF PEMBELAJARAN</td><td class="val-cell">${document.getElementById('f_obj').value}</td></tr>
-            <tr><td class="l-cell">AKTIVITI PENGAJARAN</td><td class="val-cell">${formattedAct}</td></tr>
-            <tr><td class="l-cell">REFLEKSI / IMPAK</td><td class="val-cell">${document.getElementById('f_ref').value}</td></tr>
+        <table class="m-table" style="margin-top:10px;">
+            <tr><td class="l-cell">SK</td><td>${document.getElementById('sk_select').options[document.getElementById('sk_select').selectedIndex].text}</td></tr>
+            <tr><td class="l-cell">SP</td><td><b>${sel.join('<br>')}</b></td></tr>
+            <tr><td class="l-cell">OBJEKTIF</td><td>${document.getElementById('f_obj').value}</td></tr>
+            <tr><td class="l-cell">AKTIVITI</td><td>${formattedAct}</td></tr>
+            <tr><td class="l-cell">REFLEKSI</td><td>${document.getElementById('f_ref').value}</td></tr>
         </table>
-        <div style="margin-top:30px; font-size:10px; text-align:right; color:#999; font-style:italic;">Dijana secara digital oleh Sistem RPH Andrew Arid</div>
+        <div style="margin-top:40px; text-align:right; font-size:10px; color:#aaa; font-style:italic;">Rekod Digital Andrew Arid - Sistem DSKP Mutlak Tahun 4</div>
     </div>`;
-    document.getElementById('print-zone').innerHTML = content; // Guna = supaya print zone tak bertindan setiap kali jana
     window.scrollTo(0, document.body.scrollHeight);
 }
 </script>
