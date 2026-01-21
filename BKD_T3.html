@@ -12,11 +12,11 @@
         label { font-weight: bold; color: var(--p); font-size: 11px; text-transform: uppercase; }
         input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; box-sizing: border-box; }
 
-        .sp-box { border: 1px solid #ddd; border-radius: 8px; max-height: 250px; overflow-y: auto; background: #fff; margin: 10px 0; }
+        .sp-box { border: 1px solid #ddd; border-radius: 8px; max-height: 300px; overflow-y: auto; background: #fff; margin: 10px 0; }
         .sp-item { padding: 12px; cursor: pointer; border-bottom: 1px solid #eee; font-size: 13px; transition: 0.2s; }
         .selected { background: #e8eaf6 !important; font-weight: bold; border-left: 6px solid var(--p); color: var(--p); }
 
-        .ai-section { background: #fff; padding: 15px; border: 1px solid #eee; border-radius: 12px; margin-top: 15px; }
+        .ai-section { background: #fff; padding: 20px; border: 1px solid #e8e8e8; border-radius: 12px; margin-top: 15px; }
         .btn-ai { border: none; color: white; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 11px; margin-bottom: 10px; box-shadow: 0 4px 0 rgba(0,0,0,0.1); }
         .btn-obj { background: var(--ai-obj); } .btn-act { background: var(--ai-act); } .btn-ref { background: var(--ai-ref); }
 
@@ -27,25 +27,25 @@
         .rph-paper { width: 210mm; min-height: 290mm; padding: 15mm; margin: 40px auto; background: white; border: 1px solid #000; box-sizing: border-box; }
         .m-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
         .m-table td { border: 1px solid #000; padding: 12px; font-size: 14px; vertical-align: top; }
-        .l-cell { background: #f5f5f5 !important; font-weight: bold; width: 25%; font-size: 11px; }
+        .l-cell { background: #f9f9f9 !important; font-weight: bold; width: 25%; font-size: 11px; }
         .act-step { display: block; margin-bottom: 8px; border-bottom: 1px dashed #ddd; padding-bottom: 4px; }
 
-        @media print { .no-print { display: none; } .rph-paper { margin: 0; border: none; width: 100%; } }
+        @media print { .no-print { display: none; } body { background: white; padding: 0; } .rph-paper { margin: 0; border: none; width: 100%; } }
     </style>
 </head>
 <body>
 
 <div class="setup-box no-print">
-    <h2 style="text-align:center; color:var(--p);">BKD TAHUN 3: SISTEM DSKP MUTLAK</h2>
+    <h2 style="text-align:center; color:var(--p); margin:0 0 20px 0;">BKD TAHUN 3: SISTEM DSKP LENGKAP 100%</h2>
     
     <div class="header-grid">
         <div><label>Tark</label><input type="date" id="tark" onchange="updDay()"></div>
         <div><label>Tadau</label><input type="text" id="hari" readonly></div>
         <div><label>Minggu</label><select id="mng"></select></div>
-        <div><label>Timpu</label><input type="text" id="masa" placeholder="Cth: 09:00 - 10:00"></div>
+        <div><label>Timpu</label><input type="text" id="masa" placeholder="Cth: 08:30 - 09:30"></div>
     </div>
 
-    <label>Pilih Standard Kandungan (DSKP BKD Tahun 3)</label>
+    <label>Pilih Standard Kandungan (DSKP BKD T3 LENGKAP)</label>
     <select id="sk_select" onchange="loadSP()">
         <option value="">-- SILA PILIH SK --</option>
         <optgroup label="1.0 Makinongom om Moboros">
@@ -56,39 +56,39 @@
         </optgroup>
         <optgroup label="2.0 Mambasa">
             <option value="2.1">2.1 Mambasa montok poposoliwan tuni</option>
-            <option value="2.2">2.2 Mambasa om mangarati teks</option>
-            <option value="2.3">2.3 Mambasa montok kailangan</option>
+            <option value="2.2">2.2 Mambasa om mangarati teks toniba</option>
+            <option value="2.3">2.3 Mambasa montok kailangan om poposoliwan idea</option>
         </optgroup>
         <optgroup label="3.0 Monulis">
-            <option value="3.1">3.1 Monulis boros, frasa om ayat</option>
-            <option value="3.2">3.2 Monulis montok papatalang idea</option>
-            <option value="3.3">3.3 Momonsoi draf ponulisan</option>
+            <option value="3.1">3.1 Monulis frasa om ayat miampai kemas</option>
+            <option value="3.2">3.2 Monulis montok papatalang idea kreatif</option>
+            <option value="3.3">3.3 Momonsoi draf ponulisan om mengedit</option>
         </optgroup>
         <optgroup label="4.0 Kolumison Boros">
             <option value="4.1">4.1 Popokito rinait, sinding om hiis</option>
-            <option value="4.2">4.2 Popokito kabaalan magansar</option>
+            <option value="4.2">4.2 Popokito kabaalan magansar om drama toniba</option>
         </optgroup>
         <optgroup label="5.0 Pambasaan (Tatabahasa)">
-            <option value="5.1">5.1 Momoguno Boros Ngaran (Kata Nama)</option>
-            <option value="5.2">5.2 Momoguno Boros Karaja (Kata Kerja)</option>
-            <option value="5.3">5.3 Momoguno Boros Adjektif</option>
+            <option value="5.1">5.1 Momoguno Boros Ngaran (Koizaai/Ponulu/Ponanda)</option>
+            <option value="5.2">5.2 Momoguno Boros Karaja (Transitif/Intransitif)</option>
+            <option value="5.3">5.3 Momoguno Boros Adjektif (Koulian/Waruna/Bontuk)</option>
         </optgroup>
     </select>
 
     <div class="sp-box" id="sp-list"></div>
 
     <div class="ai-section">
-        <button class="btn-ai btn-obj" onclick="getUltraAI('obj')">✨ JANA 20 OBJEKTIF BKD T3</button>
+        <button class="btn-ai btn-obj" onclick="getUltraAI('obj')">✨ JANA OBJEKTIF (20 IDEA)</button>
         <textarea id="f_obj" rows="2"></textarea>
     </div>
 
     <div class="ai-section">
-        <button class="btn-ai btn-act" onclick="getUltraAI('act')">🚀 JANA 20 AKTIVITI BKD T3</button>
+        <button class="btn-ai btn-act" onclick="getUltraAI('act')">🚀 JANA AKTIVITI (20 IDEA)</button>
         <textarea id="f_act" rows="8"></textarea>
     </div>
 
     <div class="ai-section">
-        <button class="btn-ai btn-ref" onclick="getUltraAI('ref')">📝 JANA 20 REFLEKSI BKD T3</button>
+        <button class="btn-ai btn-ref" onclick="getUltraAI('ref')">📝 JANA REFLEKSI (20 IDEA)</button>
         <textarea id="f_ref" rows="2"></textarea>
     </div>
 
@@ -104,32 +104,40 @@
 <div id="print-zone"></div>
 
 <script>
-// PANGKALAN DATA DSKP BKD T3 LENGKAP
+// PANGKALAN DATA DSKP BKD T3 - LENGKAP 100%
 const dskpBKD3 = {
-    "1.1": ["1.1.1 Makinongom om popointalang tuni pimato di mionit.","1.1.2 Papasarabak tuni vokal om konsonan id boros tanaru.","1.1.3 Monutun tuni boros di kiwaa diftong."],
-    "1.2": ["1.2.1 Mongilo om mamungaran kakamot id posorili.","1.2.2 Manahak tisuli kumaa ponguhatan di narongou.","1.2.3 Moboros montok papatalang maklumat tersurat."],
-    "2.1": ["2.1.1 Mambasa boros di kiwaa vokal tanaru.","2.1.2 Mambasa frasa om ayat miampai rinait di otopot.","2.1.3 Mambasa ayat tanaru miampai laras boros di pointunud."],
-    "2.2": ["2.2.1 Mambasa om mangarati teks toniba.","2.2.2 Mambasa om manahak tisuli kumaa teks pambasaan."],
-    "3.1": ["3.1.1 Monulis frasa om ayat miampai kemas.","3.1.2 Monulis ayat tanaru maya imlak.","3.1.3 Monulis ponulisan berformat toniba."],
-    "4.1": ["4.1.1 Maminggu sinding om hiis Kadazandusun.","4.1.2 Papatalang rinait sinding miampai otulid."],
-    "5.1": ["5.1.1 Momoguno Boros Ngaran Koizaai om Ponulu.","5.1.2 Momoguno Boros Karaja Transitif om Oisusuai.","5.1.3 Momoguno Boros Adjektif (Koulian)."]
+    "1.1": ["1.1.1 Makinongom om popointalang tuni pimato di mionit.", "1.1.2 Papasarabak tuni vokal om konsonan id boros tanaru.", "1.1.3 Monutun tuni boros di kiwaa diftong."],
+    "1.2": ["1.2.1 Mongilo om mamungaran kakamot id posorili.", "1.2.2 Manahak tisuli kumaa ponguhatan di narongou.", "1.2.3 Moboros montok papatalang maklumat tersurat."],
+    "1.3": ["1.3.1 Moboros montok papatalang idea.", "1.3.2 Moboros momoguno ayat majmuk toniba."],
+    "1.4": ["1.4.1 Moboros montok mikomunikasi.", "1.4.2 Manahak kointalangan di otopot."],
+    "2.1": ["2.1.1 Mambasa boros di kiwaa vokal tanaru.", "2.1.2 Mambasa frasa om ayat miampai rinait otopot.", "2.1.3 Mambasa ayat tanaru miampai laras boros."],
+    "2.2": ["2.2.1 Mambasa om mangarati teks toniba.", "2.2.2 Mambasa om manahak tisuli kumaa teks."],
+    "2.3": ["2.3.1 Mambasa montok kailangan.", "2.3.2 Mambasa montok poposoliwan tuni."],
+    "3.1": ["3.1.1 Monulis frasa om ayat miampai kemas.", "3.1.2 Monulis ayat tanaru maya imlak.", "3.1.3 Monulis ponulisan berformat toniba."],
+    "3.2": ["3.2.1 Monulis montok papatalang idea.", "3.2.2 Momonsoi ayat id ponulisan kreatif."],
+    "3.3": ["3.3.1 Momonsoi draf ponulisan.", "3.3.2 Mengedit om memurnikan ponulisan."],
+    "4.1": ["4.1.1 Popokito rinait, sinding om hiis.", "4.1.2 Maminggu hiis Kadazandusun."],
+    "4.2": ["4.2.1 Popokito kabaalan magansar.", "4.2.2 Momonsoi skrip drama toniba."],
+    "5.1": ["5.1.1 Momoguno Boros Ngaran Koizaai om Ponulu.", "5.1.2 Momoguno Boros Ngaran Ponanda."],
+    "5.2": ["5.2.1 Momoguno Boros Karaja Transitif.", "5.2.2 Momoguno Boros Karaja Intransitif."],
+    "5.3": ["5.3.1 Momoguno Boros Adjektif (Koulian).", "5.3.2 Momoguno Boros Adjektif (Waruna/Bontuk)."]
 };
 
-// 20 IDEA AI KHUSUS UNTUK BKD T3
 const ultraAI = {
     "1": { 
-        obj: ["Tangaanak nopo nga koilo monutun 5 boros diftong.","Tangaanak nopo nga popointalang 3 maklumat tersurat.","Tangaanak nopo nga manahak tisuli kumaa 3 ponguhatan guru.","Tangaanak nopo nga moboros momoguno ayat majmuk toniba.","Tangaanak nopo nga mamungaran 5 kakamot id dapu.","Tangaanak nopo nga mongilo tuni pimato konsonan mionit.","Tangaanak nopo nga poposunud idea maya pibaasan.","Tangaanak nopo nga manahak kointalangan kokomoi gambal.","Tangaanak nopo nga moboros miampai laras boros olinuud.","Tangaanak nopo nga mongilo 3 rinait boros di otopot."],
-        act: ["1. Makinongom pibaasan maya audio.\n2. Aktiviti 'Hot Seat' watak susuyan.\n3. Monanda isi tersurat id lembaran.\n4. Rumusan guru.","1. Simulasi mogiodu-odu id kadai.\n2. Moboros momoguno Boros Ngaran Ponulu.\n3. Aktiviti 'Think-Pair-Share'.\n4. Penutup.","1. Tayangan video koubasanan.\n2. Manahak tisuli kumaa ponguhatan guru.\n3. Gallery Walk kointalangan gambal.\n4. Refleksi."]
+        obj: ["Tangaanak nopo nga koilo monutun 5 boros diftong.","Tangaanak nopo nga popointalang 3 maklumat tersurat mantad teks.","Tangaanak nopo nga manahak tisuli kumaa 3 ponguhatan guru.","Tangaanak nopo nga moboros momoguno ayat majmuk toniba.","Tangaanak nopo nga mamungaran 5 kakamot id dapu.","Tangaanak nopo nga mongilo tuni pimato konsonan mionit.","Tangaanak nopo nga poposunud idea maya pibaasan lisan.","Tangaanak nopo nga manahak kointalangan kokomoi gambal siri.","Tangaanak nopo nga moboros miampai laras boros olinuud.","Tangaanak nopo nga mongilo 3 rinait boros di otopot.","Tangaanak nopo nga popointalang tuni vokal tanaru.","Tangaanak nopo nga moboros kokomoi paganakan dau.","Tangaanak nopo nga manahak 3 respons kumaa arahan.","Tangaanak nopo nga mongilo tuni boros di kohiok.","Tangaanak nopo nga mamungaran kakamot id tuman.","Tangaanak nopo nga moboros miampai intonasi pointunud.","Tangaanak nopo nga manahak idea kokomoi koubasanan.","Tangaanak nopo nga monutun boros ngaran id posorili.","Tangaanak nopo nga moboros kokomoi tadau kaamatan.","Tangaanak nopo nga manahak tisuli lisan di pantun."],
+        act: ["1. Makinongom pibaasan maya rakaman audio.\n2. Aktiviti 'Hot Seat' watak utama susuyan.\n3. Monanda isi tersurat id lembaran kerja.\n4. Rumusan guru.","1. Simulasi mogiodu-odu id dapu/kadai.\n2. Moboros momoguno Boros Ngaran Ponulu.\n3. Aktiviti 'Think-Pair-Share' idea.\n4. Penutup PdPc.","1. Tayangan video koubasanan Kadazandusun.\n2. Manahak tisuli kumaa ponguhatan guru.\n3. Gallery Walk kointalangan gambal.\n4. Refleksi tadau diti.","1. Permainan 'Sentence Race' ayat majmuk.\n2. Murid membina ayat lisan kreatif.\n3. Sesi lakonan situasi harian.\n4. Penilaian rakan sebaya."]
     },
     "2": { 
-        obj: ["Tangaanak nopo nga mambasa teks toniba kelancaran 100%.","Tangaanak nopo nga mangarati 3 boros kakamot dapu.","Tangaanak nopo nga mambasa ayat tanaru miampai intonasi.","Tangaanak nopo nga manahak 2 isi penting mantad teks.","Tangaanak nopo nga mambasa sinding Kadazandusun.","Tangaanak nopo nga monutun watak utama id susuyan.","Tangaanak nopo nga mambasa frasa miampai rinait otopot.","Tangaanak nopo nga mambasa om mangarati iklan toniba."],
-        act: ["1. Mambasa teks secara mekanis.\n2. Aktiviti 'Word Search' id teks.\n3. Menjawab soalan pemahaman digital.\n4. Penutup.","1. Aktiviti 'Partner Reading'.\n2. Mengerjakan peta i-Think isi penting.\n3. Sesi soal jawab kritis.\n4. Rumusan pambasaan."]
+        obj: ["Tangaanak nopo nga mambasa teks toniba kelancaran 100%.","Tangaanak nopo nga mangarati 5 boros kakamot dapu.","Tangaanak nopo nga mambasa ayat tanaru miampai intonasi.","Tangaanak nopo nga manahak 2 isi penting mantad pambasaan.","Tangaanak nopo nga mambasa sinding Kadazandusun miampai rinait.","Tangaanak nopo nga monutun watak utama id susuyan nabasa.","Tangaanak nopo nga mambasa frasa miampai rinait otopot.","Tangaanak nopo nga mambasa om mangarati iklan toniba.","Tangaanak nopo nga mambasa boros diftong id teks.","Tangaanak nopo nga mangarati maksud ayat majmuk.","Tangaanak nopo nga mambasa miampai kelancaran pointunud.","Tangaanak nopo nga manahak jawapan pemahaman nabasa.","Tangaanak nopo nga mambasa boros vokal tanaru.","Tangaanak nopo nga mangarati huraian gambal grafik.","Tangaanak nopo nga mambasa ayat perintah id teks.","Tangaanak nopo nga monutun isi tersirat toniba.","Tangaanak nopo nga mambasa petikan 3 perenggan.","Tangaanak nopo nga mambasa sudawil/hiis Kadazandusun.","Tangaanak nopo nga mangarati maksud boros koumbalan.","Tangaanak nopo nga mambasa boros karaja id petikan."],
+        act: ["1. Mambasa teks secara mekanis beramai-ramai.\n2. Aktiviti 'Word Search' boros diftong id teks.\n3. Menjawab soalan pemahaman digital.\n4. Penutup pambasaan.","1. Aktiviti 'Partner Reading' (bacaan berpasangan).\n2. Mengerjakan peta i-Think isi penting.\n3. Sesi soal jawab kritis kokomoi teks.\n4. Rumusan pambasaan.","1. Teknik bacaan imbasan (scanning).\n2. Menandakan kata kunci penting.\n3. Aktiviti 'Jigsaw Reading' kumpulan.\n4. Refleksi.","1. Membaca lirik sinding Kadazandusun.\n2. Menerangkan maksud rangkap sinding.\n3. Nyanyian kelas beramai-ramai.\n4. Penilaian."]
     },
     "3": { 
-        obj: ["Tangaanak nopo nga monulis 3 ayat majmuk toniba.","Tangaanak nopo nga monulis draf susuyan toniba.","Tangaanak nopo nga monulis 5 frasa maya imlak.","Tangaanak nopo nga momonsoi kad ucapan Tadau Kaamatan.","Tangaanak nopo nga monulis kointalangan gambal bersiri."],
-        act: ["1. Meneliti gambal bersiri.\n2. Momonsoi ayat individu id buuk.\n3. Aktiviti 'Sentence Surgery'.\n4. Semakan rakan.","1. Bengkel monulis draf toniba.\n2. Murid menggunakan Boros Adjektif id ayat.\n3. Pertandingan monulis olumis.\n4. Penutup."]
+        obj: ["Tangaanak nopo nga monulis 3 ayat majmuk toniba otopot.","Tangaanak nopo nga monulis draf susuyan toniba.","Tangaanak nopo nga monulis 5 frasa maya imlak.","Tangaanak nopo nga momonsoi kad ucapan Tadau Kaamatan.","Tangaanak nopo nga monulis kointalangan gambal bersiri.","Tangaanak nopo nga monulis boros ngaran koizaai.","Tangaanak nopo nga monulis frasa miampai kemas.","Tangaanak nopo nga mengedit 5 kesalahan ejaan id teks.","Tangaanak nopo nga monulis jawapan pemahaman otopot.","Tangaanak nopo nga monulis draf ponulisan berformat.","Tangaanak nopo nga monulis ayat majmuk momoguno boros hubung.","Tangaanak nopo nga monulis lirik hiis Kadazandusun.","Tangaanak nopo nga monulis semula ayat di nabasa.","Tangaanak nopo nga monulis boros adjektif waruna.","Tangaanak nopo nga monulis boros karaja transitif.","Tangaanak nopo nga monulis kointalangan kakamot tuman.","Tangaanak nopo nga monulis semula petikan maya imlak.","Tangaanak nopo nga monulis ayat penyata otopot.","Tangaanak nopo nga monulis draf idea kreatif.","Tangaanak nopo nga monulis ayat perintah toniba."],
+        act: ["1. Meneliti gambal bersiri kokomoi tuman.\n2. Momonsoi ayat individu id buuk latihan.\n3. Aktiviti 'Sentence Surgery' (edit ayat).\n4. Semakan rakan sebaya.","1. Bengkel monulis draf susuyan toniba.\n2. Murid menggunakan Boros Adjektif id ayat.\n3. Pertandingan monulis draf olumis.\n4. Penutup ponulisan.","1. Aktiviti 'Dictation' (Imlak) frasa BKD.\n2. Membaiki ejaan boros mionit.\n3. Menulis semula petikan lancar.\n4. Refleksi.","1. Momonsoi peta alir proses penulisan.\n2. Menulis draf pertama susuyan kreatif.\n3. Perbincangan idea kumpulan.\n4. Penilaian."]
     },
-    "ref": ["30/32 tangaanak nokolantoi sasaran.","Tangaanak nopo nga osonong ginawo balajal.","PdPc kinalantoi miampai aktiviti PAK-21.","Perlu lobi fokus kumaa pambasaan diftong.","Tangaanak nopo nga koilo momonsoi ayat majmuk.","PdPc tinangguh - Tadau Kaamatan.","Refleksi: Tangaanak nopo nga aktif id pibaasan.","Kekuatan: Tangaanak nopo nga olinuud moboros."]
+    "ref": [
+        "30/32 tangaanak nokolantoi sasaran PdPc.","Tangaanak nopo nga osonong ginawo balajal.","PdPc kinalantoi miampai aktiviti PAK-21.","Perlu lobi fokus pambasaan boros diftong.","Tangaanak nopo nga koilo momonsoi ayat majmuk.","PdPc tinangguh - Tadau Kaamatan/Cuti.","Refleksi: Tangaanak nopo nga aktif id pibaasan.","Kekuatan: Tangaanak nopo nga olinuud moboros.","Murid dapat mengenal pasti boros ngaran ponulu.","Suasana pembelajaran ceria dan terkawal.","Murid menunjukkan nilai kerjasama id kumpulan.","Objektif tercapai, 2 murid perlukan bimbingan.","Hasil penulisan draf murid sangat memuaskan.","Murid mahir membaca ayat tanaru miampai lancar.","Aktiviti lakonan drama sangat memberangsangkan.","Guru menggunakan media interaktif yang menarik.","Murid faham penggunaan boros adjektif waruna.","PdPc mencapai sasaran kualiti ditetapkan.","Latihan pengukuhan diberikan kepada semua.","Penyertaan murid 100% secara aktif."]
 };
 
 for(let i=1;i<=42;i++) document.getElementById('mng').innerHTML += `<option value="${i}">Minggu ${i}</option>`;
@@ -167,7 +175,7 @@ function genRPH() {
     <div class="rph-paper">
         <div style="text-align:center; border-bottom:4px double #000; padding-bottom:10px;">
             <h1 style="margin:0;">RPH BOROS KADAZANDUSUN (BKD)</h1>
-            <h3 style="margin:5px 0;">TAHUN 3 - KSSR SEMAKAN</h3>
+            <h3 style="margin:5px 0;">TAHUN 3 - KSSR SEMAKAN (FULL)</h3>
         </div>
         <table class="m-table">
             <tr><td class="l-cell">TARIKH/MINGGU</td><td>${document.getElementById('tark').value} | M${document.getElementById('mng').value}</td><td class="l-cell">TADAU (HARI)</td><td>${document.getElementById('hari').value}</td></tr>
@@ -180,7 +188,7 @@ function genRPH() {
             <tr><td class="l-cell">AKTIVITI PAMBALAJAAN</td><td>${formattedAct}</td></tr>
             <tr><td class="l-cell">REFLEKSI</td><td>${document.getElementById('f_ref').value}</td></tr>
         </table>
-        <div style="margin-top:40px; text-align:right; font-size:10px; color:#aaa; font-style:italic;">Sistem E-RPH Mutlak BKD T3 - Andrew Arid</div>
+        <div style="margin-top:30px; font-size:10px; color:#666; font-style:italic;">Penjanaan RPH Pintar BKD T3 Mutlak - Andrew Arid</div>
     </div>`;
 }
 </script>
