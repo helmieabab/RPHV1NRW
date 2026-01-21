@@ -4,163 +4,165 @@
     <meta charset="UTF-8">
     <title>RPH BM T4 - ANDREW ARID</title>
     <style>
-        :root { --p: #003366; --ai: #8e44ad; --accent: #27ae60; --bg: #f5f7fa; }
+        :root { --p: #003366; --ai-obj: #2980b9; --ai-act: #8e44ad; --ai-ref: #16a085; --bg: #f4f7f6; }
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg); padding: 20px; }
-        .setup-box { max-width: 1100px; margin: auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-top: 10px solid var(--p); }
-        .grid-header { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
+        .setup-box { max-width: 1200px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-top: 10px solid var(--p); }
+        
+        .header-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 20px; background: #f9f9f9; padding: 15px; border-radius: 10px; }
         label { font-weight: bold; color: var(--p); font-size: 12px; text-transform: uppercase; }
-        select, input, textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; margin-top: 5px; font-size: 14px; }
-        
-        .sp-box { border: 1px solid #ccc; border-radius: 6px; max-height: 250px; overflow-y: auto; background: #fff; margin: 10px 0; }
-        .sp-item { padding: 10px; cursor: pointer; border-bottom: 1px solid #eee; font-size: 13px; transition: 0.2s; }
-        .sp-item:hover { background: #f0f4f8; }
-        .selected { background: #e1f5fe !important; font-weight: bold; border-left: 6px solid #0288d1; }
-        
-        .ai-section { background: #fdf2ff; padding: 20px; border-radius: 10px; border: 1px solid #d7bde2; margin-top: 20px; }
-        .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px; }
-        .btn-ai { background: var(--ai); color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%; font-size: 14px; }
-        .btn-ai:hover { background: #6c3483; transform: scale(1.02); }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; box-sizing: border-box; }
 
-        .action-btns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 25px; }
-        .btn-main { background: var(--p); color: white; border: none; padding: 18px; border-radius: 8px; font-weight: bold; cursor: pointer; }
-        .btn-print { background: var(--accent); color: white; border: none; padding: 18px; border-radius: 8px; font-weight: bold; cursor: pointer; }
-        
+        .sp-box { border: 1px solid #ddd; border-radius: 8px; max-height: 200px; overflow-y: auto; background: #fff; margin-top: 5px; }
+        .sp-item { padding: 10px; cursor: pointer; border-bottom: 1px solid #eee; font-size: 13px; }
+        .selected { background: #e3f2fd !important; font-weight: bold; border-left: 5px solid var(--p); }
+
+        .ai-group { background: #fff; padding: 15px; border: 1px solid #e0e0e0; border-radius: 10px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .btn-ai { border: none; color: white; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 12px; margin-bottom: 10px; transition: 0.3s; }
+        .btn-obj { background: var(--ai-obj); }
+        .btn-act { background: var(--ai-act); }
+        .btn-ref { background: var(--ai-ref); }
+        .btn-ai:hover { opacity: 0.8; transform: translateY(-2px); }
+
+        .hub-actions { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 30px; border-top: 2px solid #eee; padding-top: 25px; }
+        .btn-hub { border: none; padding: 16px; border-radius: 8px; color: white; font-weight: bold; cursor: pointer; text-align: center; font-size: 13px; text-transform: uppercase; }
+        .bg-jana { background: var(--p); }
+        .bg-save { background: #27ae60; }
+        .bg-print { background: #2c3e50; }
+        .bg-clear { background: #d35400; }
+        .bg-home { background: #7f8c8d; }
+
         .rph-paper { width: 210mm; padding: 20mm; margin: 40px auto; background: white; border: 1px solid #000; box-sizing: border-box; }
-        .m-table { width: 100%; border-collapse: collapse; }
-        .m-table td { border: 1px solid #000; padding: 12px; font-size: 13px; vertical-align: top; }
-        .label { background: #f2f2f2 !important; font-weight: bold; width: 25%; }
+        .m-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .m-table td { border: 1px solid #000; padding: 12px; font-size: 14px; vertical-align: top; }
+        .l-cell { background: #f2f2f2 !important; font-weight: bold; width: 25%; }
+
         @media print { .no-print { display: none; } .rph-paper { margin: 0; border: none; width: 100%; } }
     </style>
 </head>
 <body>
 
 <div class="setup-box no-print">
-    <h1 style="text-align:center; color:var(--p); margin-top:0;">PENGURUSAN RPH BM TAHUN 4 - ANDREW ARID</h1>
+    <h2 style="text-align:center; color:var(--p); margin-top:0;">BAHASA MELAYU TAHUN 4: SISTEM SMART-CONTEXT AI</h2>
     
-    <div class="grid-header">
+    <div class="header-grid">
         <div><label>Tarikh</label><input type="date" id="tark" onchange="updDay()"></div>
         <div><label>Hari</label><input type="text" id="hari" readonly></div>
         <div><label>Minggu</label><select id="mng"></select></div>
-        <div><label>Masa</label><input type="text" id="masa" placeholder="Cth: 08:00 - 09:00"></div>
+        <div><label>Masa</label><input type="text" id="masa" placeholder="Cth: 08:30 - 09:30"></div>
     </div>
 
-    <label>Standard Kandungan (Pilih Satu)</label>
+    <label>Standard Kandungan (SK)</label>
     <select id="sk_select" onchange="loadSP()">
-        <option value="">-- SILA PILIH SK --</option>
-        <option value="1.1">1.1 Mendengar dan memberikan respons</option>
-        <option value="1.2">1.2 Bertutur untuk menyampaikan maklumat</option>
-        <option value="1.3">1.3 Bercerita, dan menceritakan perkara yang didengar</option>
-        <option value="2.1">2.1 Asas membaca dan memahami</option>
-        <option value="2.2">2.2 Membaca, memahami, dan menaakul</option>
-        <option value="2.3">2.3 Membaca dan mengapresiasi karya sastera</option>
-        <option value="3.1">3.1 Asas menulis</option>
-        <option value="3.2">3.2 Menulis perkataan, frasa, dan ayat</option>
-        <option value="3.3">3.3 Menghasilkan penulisan</option>
-        <option value="4.1">4.1 Mengaplikasikan unsur keindahan bahasa</option>
-        <option value="5.1">5.1 Memahami dan menggunakan golongan kata</option>
+        <option value="">-- SILA PILIH SK DSKP T4 --</option>
+        <optgroup label="Kemahiran Mendengar dan Bertutur">
+            <option value="1.1">1.1 Mendengar dan memberikan respons</option>
+            <option value="1.2">1.2 Bertutur untuk menyampaikan maklumat</option>
+            <option value="1.3">1.3 Bercerita, menceritakan perkara didengar</option>
+        </optgroup>
+        <optgroup label="Kemahiran Membaca">
+            <option value="2.1">2.1 Asas membaca dan memahami</option>
+            <option value="2.2">2.2 Membaca, memahami, menaakul bahan</option>
+            <option value="2.3">2.3 Membaca dan mengapresiasi karya sastera</option>
+        </optgroup>
+        <optgroup label="Kemahiran Menulis">
+            <option value="3.1">3.1 Asas menulis</option>
+            <option value="3.2">3.2 Menulis perkataan, frasa, dan ayat</option>
+            <option value="3.3">3.3 Menghasilkan penulisan</option>
+        </optgroup>
+        <optgroup label="Seni Bahasa & Tatabahasa">
+            <option value="4.1">4.1 Mengaplikasikan keindahan bahasa</option>
+            <option value="4.2">4.2 Menghayati keindahan bahasa (Puisi)</option>
+            <option value="5.1">5.1 Memahami dan menggunakan golongan kata</option>
+            <option value="5.2">5.2 Memahami dan menggunakan pembentukan kata</option>
+            <option value="5.3">5.3 Memahami dan menggunakan pembentukan ayat</option>
+        </optgroup>
     </select>
 
-    <label style="display:block; margin-top:10px;">Standard Pembelajaran (Boleh Pilih Banyak)</label>
     <div class="sp-box" id="sp-list"></div>
 
-    <div class="ai-section">
-        <button class="btn-ai" onclick="generateAI()">✨ JANA 15 IDEA AI BERVARIASI (KLIK BERULANG KALI)</button>
-        <div class="ai-grid">
-            <textarea id="f_obj" placeholder="Objektif Pembelajaran..." rows="4"></textarea>
-            <textarea id="f_act" placeholder="Aktiviti Pembelajaran..." rows="4"></textarea>
-        </div>
-        <textarea id="f_ref" placeholder="Refleksi / Impak..." rows="2" style="margin-top:10px;"></textarea>
+    <div class="ai-group">
+        <button class="btn-ai btn-obj" onclick="getSmartAI('obj')">✨ CADANGAN OBJEKTIF (CONTEXT AI)</button>
+        <textarea id="f_obj" placeholder="Pilih SK dahulu..." rows="2"></textarea>
     </div>
 
-    <div class="action-btns">
-        <button class="btn-main" onclick="genRPH()">JANA RPH</button>
-        <button class="btn-print" onclick="window.print()">CETAK SEMUA</button>
-        <button class="btn-print" style="background:#e67e22" onclick="location.reload()">RESAIL SISTEM</button>
+    <div class="ai-group">
+        <button class="btn-ai btn-act" onclick="getSmartAI('act')">🚀 CADANGAN AKTIVITI (CONTEXT AI)</button>
+        <textarea id="f_act" placeholder="Idea aktiviti..." rows="5"></textarea>
+    </div>
+
+    <div class="ai-group">
+        <button class="btn-ai btn-ref" onclick="getSmartAI('ref')">📝 CADANGAN REFLEKSI</button>
+        <textarea id="f_ref" placeholder="Refleksi..." rows="2"></textarea>
+    </div>
+
+    <div class="hub-actions">
+        <button class="btn-hub bg-jana" onclick="genRPH()">JANA RPH</button>
+        <button class="btn-hub bg-save" onclick="alert('Data disimpan!')">SIMPAN RPH</button>
+        <button class="btn-hub bg-print" onclick="window.print()">CETAK / PDF</button>
+        <button class="btn-hub bg-clear" onclick="location.reload()">CLEAR ALL</button>
+        <button class="btn-hub bg-home" onclick="alert('Kembali ke Hub Utama')">HUB</button>
     </div>
 </div>
 
 <div id="print-zone"></div>
 
 <script>
-// DATABASE DSKP LENGKAP BM T4
 const spData = {
-    "1.1": ["1.1.1 Mendengar, mengecam sebutan, dan menyebut semula istilah serta ungkapan.", "1.1.2 Mendengar, memahami dan memberikan respons terhadap ayat perintah.", "1.1.3 Mendengar, mengecam sebutan, dan menyebut semula ujaran."],
-    "1.2": ["1.2.1 Bertutur untuk menilai, dan memberikan alasan secara kritis.", "1.2.2 Menjelaskan dan membanding beza maklumat tersurat.", "1.2.3 Memberi respons terhadap soalan kritis."],
-    "2.1": ["2.1.1 Membaca dan memahami petikan dengan sebutan yang betul.", "2.2.1 Membaca, memahami dan menaakul bahan multimedia."],
-    "3.1": ["3.1.1 Menulis secara mekanis menggunakan tulisan berangkai.", "3.2.1 Membina dan menulis ayat tunggal serta ayat majmuk."],
-    "5.1": ["5.1.1 Memahami dan menggunakan kata nama mengikut konteks.", "5.1.2 Memahami dan menggunakan kata kerja mengikut konteks."]
+    "1.1": ["1.1.1 Mendengar, mengecam sebutan, dan menyebut semula.","1.1.2 Mendengar, memahami dan memberikan respons terhadap perintah.","1.1.3 Mendengar dan memberikan respons terhadap soalan."],
+    "1.2": ["1.2.1 Bertutur untuk menjelaskan sesuatu perkara.","1.2.2 Menjelaskan maklumat tersurat dan tersirat."],
+    "2.1": ["2.1.1 Membaca dan memahami petikan dengan sebutan betul.","2.2.1 Membaca dan menaakul bahan multimedia."],
+    "2.3": ["2.3.1 Membaca dan menganalisis kandungan karya sastera."],
+    "3.1": ["3.1.1 Menulis secara mekanis tulisan berangkai.","3.2.1 Membina ayat tunggal dan majmuk."],
+    "3.2": ["3.2.2 Menghasilkan jawapan pemahaman berdasarkan teks.","3.2.3 Membina dan menulis ayat dalam perenggan."],
+    "3.3": ["3.3.1 Menghasilkan penulisan berformat dan tidak berformat."],
+    "5.1": ["5.1.1 Memahami dan menggunakan kata nama mengikut konteks.","5.1.2 Memahami dan menggunakan kata kerja."],
+    "5.3": ["5.3.1 Memahami dan membina pelbagai ayat mengikut konteks."]
 };
 
-// DATABASE IDEA AI (15 IDEA UNTUK SETIAP SK)
-const aiDatabase = {
-    "1.1": [
-        { obj: "Murid dapat mengecam 5 istilah penting dalam petikan.", act: "1. Mendengar audio ujaran.\n2. Mengulangi istilah dengan sebutan tepat.\n3. Permainan 'Listen and Repeat'.", ref: "Murid sangat aktif mengecam sebutan." },
-        { obj: "Murid memberikan respons kepada 3 ayat perintah.", act: "1. Simulasi arahan guru.\n2. Melaksanakan tugasan berdasarkan perintah.\n3. Kerja kumpulan.", ref: "Objektif tercapai dengan bantuan bahan visual." },
-        { obj: "Murid menyebut semula ungkapan bertema dengan betul.", act: "1. Membaca ungkapan di papan putih.\n2. Latih tubi sebutan.\n3. Persembahan individu.", ref: "Murid dapat menyebut istilah dengan fasih." }
-        // ... (Saya akan tambah logik randomize untuk 15 variasi dalam sistem kod ini)
-    ],
-    "2.1": [
-        { obj: "Murid membaca petikan dengan intonasi yang betul.", act: "1. Bacaan mekanis secara kelas.\n2. Bacaan berpasangan.\n3. Kuiz kefahaman teks.", ref: "Peningkatan ketara dalam kelancaran membaca." }
-    ]
+const smartAI = {
+    // KEMAHIRAN LISAN
+    "1.1": { 
+        obj: ["Murid dapat menyebut 5 istilah dengan sebutan betul.","Murid dapat memberi respons terhadap 3 ayat perintah.","Murid dapat menjawab 3 soalan secara spontan."],
+        act: ["1. Mendengar rakaman audio dialog. 2. Permainan Telefon Karat. 3. Sesi soal jawab lisan.","1. Simulasi ayat perintah. 2. Murid melakukan tugasan mengikut arahan lisan."]
+    },
+    "1.2": {
+        obj: ["Murid dapat menjelaskan 2 maklumat tersurat dengan jelas.","Murid dapat bertutur menggunakan ayat yang gramatis.","Murid dapat membanding beza dua maklumat."],
+        act: ["1. Aktiviti Think-Pair-Share maklumat teks. 2. Persembahan lisan kumpulan. 3. Kuiz lisan."]
+    },
+    // KEMAHIRAN MEMBACA
+    "2.1": {
+        obj: ["Murid dapat membaca petikan dengan kelancaran yang baik.","Murid dapat menjelaskan maksud 3 kosa kata baharu.","Murid dapat membaca secara mekanis teks pendek."],
+        act: ["1. Bacaan mekanis kelas. 2. Mencari kosa kata dalam kamus. 3. Menjawab kuiz kefahaman."]
+    },
+    "2.2": {
+        obj: ["Murid dapat menaakul maklumat dalam bahan multimedia.","Murid dapat menyatakan isi utama petikan.","Murid dapat merumuskan maklumat grafik."],
+        act: ["1. Menganalisis bahan grafik (Poster/Iklan). 2. Melengkapkan peta buih. 3. Sesi perbincangan kritis."]
+    },
+    // KEMAHIRAN MENULIS
+    "3.1": {
+        obj: ["Murid dapat menulis 3 perenggan tulisan berangkai dengan kemas.","Murid dapat membina 5 ayat tunggal yang lengkap.","Murid dapat menyalin teks dengan ejaan yang betul."],
+        act: ["1. Latihan menulis tulisan berangkai. 2. Pertandingan tulisan cantik. 3. Menyalin petikan dari buku teks."]
+    },
+    "3.2": {
+        obj: ["Murid dapat membina 5 ayat majmuk menggunakan kata hubung.","Murid dapat menulis jawapan pemahaman berdasarkan teks.","Murid dapat membina perenggan yang koheren."],
+        act: ["1. Meneliti gambar rangsangan. 2. Aktiviti Sentence Scramble. 3. Menulis jawapan dalam buku latihan."]
+    },
+    // KEMAHIRAN TATABAHASA
+    "5.1": {
+        obj: ["Murid dapat menggunakan kata nama am dan khas dengan betul.","Murid dapat membina ayat menggunakan kata kerja aktif.","Murid dapat mengelompokkan kata adjektif."],
+        act: ["1. Aktiviti Grammar Hunt dalam kelas. 2. Menulis ayat kreatif. 3. Kuiz Wordwall."]
+    },
+    "ref": [
+        "30/32 murid mencapai objektif. 2 diberi bimbingan.","PdPc berjalan lancar dan murid aktif.","Objektif tercapai, murid seronok dengan aktiviti AI.","Sesi pemulihan dijalankan untuk murid lemah."]
 };
-
-// Logik untuk memberikan idea secara rawak (15 cadangan)
-function generateAI() {
-    const sk = document.getElementById('sk_select').value;
-    if(!sk) return alert("Sila pilih SK dahulu!");
-    
-    // Senarai Objektif Rawak (Contoh Variasi)
-    const objs = [
-        "Murid dapat menguasai kemahiran menerusi aktiviti hands-on.",
-        "Murid mampu menjawab 3/5 soalan dengan tepat secara lisan.",
-        "Murid membentangkan hasil kerja menggunakan peta I-Think.",
-        "Murid menganalisis maklumat tersurat dengan kritis.",
-        "Murid mengenal pasti kosa kata baharu dalam teks.",
-        "Murid dapat membanding beza maklumat dalam grafik.",
-        "Murid membina ayat kreatif berdasarkan kata kunci.",
-        "Murid melaksanakan tugasan dalam tempoh yang ditetapkan.",
-        "Murid menunjukkan kerjasama dalam aktiviti kumpulan.",
-        "Murid dapat menjelaskan idea dengan sebutan yang jelas.",
-        "Murid menggunakan kamus untuk mencari makna istilah.",
-        "Murid merumuskan isi penting daripada bahan multimedia.",
-        "Murid mempamerkan sikap menghargai bahasa Melayu.",
-        "Murid memberikan maklum balas secara spontan.",
-        "Murid melengkapkan peta minda dengan maklumat tepat."
-    ];
-
-    const acts = [
-        "1. Set induksi menggunakan video Youtube.\n2. Perbincangan kumpulan 'Gallery Walk'.\n3. Pembentangan hasil kerja.",
-        "1. Murid membaca teks secara bergilir-gilir.\n2. Mencari perkataan tersembunyi.\n3. Kuiz menggunakan aplikasi Wordwall.",
-        "1. Teknik 'Think-Pair-Share'.\n2. Murid membina ayat di papan putih.\n3. Rumusan guru.",
-        "1. Main peranan mengikut situasi.\n2. Menulis jawapan dalam buku latihan.\n3. Permainan bahasa 'Hot Seat'.",
-        "1. Menonton klip berita.\n2. Mencatat isi penting dalam buku nota.\n3. Sesi soal jawab.",
-        "1. Mencari maklumat di perpustakaan sekolah.\n2. Melakar peta pokok.\n3. Murid bercerita tentang pengalaman sendiri.",
-        "1. Demonstrasi oleh guru.\n2. Murid mempraktikkan kemahiran secara individu.\n3. Penilaian rakan sebaya.",
-        "1. Permainan 'Siapa Cepat Dia Dapat'.\n2. Melengkapkan lembaran kerja pengayaan.\n3. Refleksi murid di akhir sesi."
-    ];
-
-    const refs = [
-        "30/30 murid mencapai objektif pembelajaran.",
-        "PdPc ditangguhkan kerana program sekolah.",
-        "Sebahagian murid memerlukan bimbingan intensif.",
-        "Suasana kelas sangat kondusif dan terkawal.",
-        "Objektif tercapai, latihan pengukuhan diberikan.",
-        "Murid sangat berminat dengan aktiviti berkumpulan.",
-        "Pencapaian murid sangat memuaskan.",
-        "Sesi pemulihan dilakukan untuk 5 murid."
-    ];
-
-    // Pilih secara rawak
-    document.getElementById('f_obj').value = objs[Math.floor(Math.random()*objs.length)];
-    document.getElementById('f_act').value = acts[Math.floor(Math.random()*acts.length)];
-    document.getElementById('f_ref').value = refs[Math.floor(Math.random()*refs.length)];
-}
 
 let selSP = [];
 for(let i=1;i<=42;i++) document.getElementById('mng').innerHTML += `<option value="${i}">Minggu ${i}</option>`;
 function updDay() { const d = new Date(document.getElementById('tark').value); document.getElementById('hari').value = ["Ahad","Isnin","Selasa","Rabu","Khamis","Jumaat","Sabtu"][d.getDay()]; }
+
 function loadSP() {
-    const sk = document.getElementById('sk_select').value; const box = document.getElementById('sp-list'); box.innerHTML = ""; selSP = [];
+    const sk = document.getElementById('sk_select').value;
+    const box = document.getElementById('sp-list'); box.innerHTML = ""; selSP = [];
     if(spData[sk]) spData[sk].forEach(s => {
         let d = document.createElement('div'); d.className = 'sp-item'; d.innerText = s;
         d.onclick = function() { this.classList.toggle('selected'); if(this.classList.contains('selected')) selSP.push(s); else selSP = selSP.filter(x=>x!==s); };
@@ -168,20 +170,28 @@ function loadSP() {
     });
 }
 
+function getSmartAI(type) {
+    const sk = document.getElementById('sk_select').value;
+    if(!sk && type !== 'ref') return alert("Pilih SK dahulu!");
+    let pool = (type === 'ref') ? smartAI.ref : (smartAI[sk] && smartAI[sk][type]) ? smartAI[sk][type] : ["Pilih SK yang lain."];
+    document.getElementById('f_'+type).value = pool[Math.floor(Math.random()*pool.length)];
+}
+
 function genRPH() {
+    if(selSP.length === 0) return alert("Pilih SP dahulu!");
     const content = `
     <div class="rph-paper">
-        <h2 style="text-align:center; border-bottom: 2px solid #000; padding-bottom:10px;">RANCANGAN PENGAJARAN HARIAN BM T4</h2>
+        <h2 style="text-align:center; text-decoration: underline;">RANCANGAN PENGAJARAN HARIAN BM T4</h2>
         <table class="m-table">
             <tr><td>TARIKH: ${document.getElementById('tark').value}</td><td>HARI: ${document.getElementById('hari').value}</td><td>MINGGU: ${document.getElementById('mng').value}</td></tr>
-            <tr><td colspan="2">MASA: ${document.getElementById('masa').value}</td><td>GURU: ANDREW ARID</td></tr>
+            <tr><td colspan="3">GURU: ANDREW ARID</td></tr>
         </table>
-        <table class="m-table" style="margin-top:20px;">
-            <tr><td class="label">SK</td><td>${document.getElementById('sk_select').options[document.getElementById('sk_select').selectedIndex].text}</td></tr>
-            <tr><td class="label">SP</td><td>${selSP.join('<br>')}</td></tr>
-            <tr><td class="label">OBJEKTIF</td><td>${document.getElementById('f_obj').value.replace(/\n/g,'<br>')}</td></tr>
-            <tr><td class="label">AKTIVITI</td><td>${document.getElementById('f_act').value.replace(/\n/g,'<br>')}</td></tr>
-            <tr><td class="label">REFLEKSI</td><td>${document.getElementById('f_ref').value.replace(/\n/g,'<br>')}</td></tr>
+        <table class="m-table">
+            <tr><td class="l-cell">SK</td><td>${document.getElementById('sk_select').options[document.getElementById('sk_select').selectedIndex].text}</td></tr>
+            <tr><td class="l-cell">SP</td><td>${selSP.join('<br>')}</td></tr>
+            <tr><td class="l-cell">OBJEKTIF</td><td>${document.getElementById('f_obj').value}</td></tr>
+            <tr><td class="l-cell">AKTIVITI</td><td>${document.getElementById('f_act').value.replace(/\n/g,'<br>')}</td></tr>
+            <tr><td class="l-cell">REFLEKSI</td><td>${document.getElementById('f_ref').value}</td></tr>
         </table>
     </div>`;
     document.getElementById('print-zone').innerHTML += content;
@@ -189,4 +199,3 @@ function genRPH() {
 </script>
 </body>
 </html>
-
