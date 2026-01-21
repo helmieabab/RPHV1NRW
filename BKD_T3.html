@@ -3,73 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPH BKD TAHUN 3</title>
+    <title>RPH BKD T3 - ANDREW ARID</title>
     <style>
-        :root { --primary: #003366; --accent: #c0392b; --bg: #f5f7fa; }
+        :root { --primary: #003366; --accent: #27ae60; --bg: #f5f7fa; }
         body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); margin: 0; padding: 20px; }
         .setup-box { max-width: 1000px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-top: 8px solid var(--primary); }
         .setup-box h1 { text-align: center; color: var(--primary); text-transform: uppercase; margin-bottom: 25px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
         label { font-weight: bold; color: var(--primary); font-size: 13px; text-transform: uppercase; }
         select, input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; margin-top: 5px; font-size: 14px; box-sizing: border-box; }
-        .sp-container { border: 1px solid #ccc; border-radius: 6px; max-height: 250px; overflow-y: auto; background: #fff; margin-top: 10px; }
+        .sp-container { border: 1px solid #ccc; border-radius: 6px; max-height: 300px; overflow-y: auto; background: #fff; margin-top: 10px; }
         .sp-table { width: 100%; border-collapse: collapse; }
         .sp-table tr { cursor: pointer; border-bottom: 1px solid #eee; }
         .sp-table tr:hover { background: #f0f4f8; }
         .sp-table td { padding: 10px; font-size: 13px; line-height: 1.4; }
         .selected-row { background: #e1f5fe !important; font-weight: bold; border-left: 5px solid #0288d1; }
-        .ai-buttons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
-        .btn-ai { background: #673ab7; color: white; border: none; padding: 8px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 11px; }
-        .action-btns { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; margin-top: 25px; }
-        .btn-main { background: var(--primary); color: white; border: none; padding: 15px; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
-        .btn-clear { background: #7f8c8d; color: white; border: none; padding: 15px; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
-        .btn-hub { display: block; text-align: center; margin-top: 20px; padding: 12px; background: #2c3e50; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px; transition: 0.3s; }
-        .btn-hub:hover { background: #34495e; }
-
-        /* PRINT FORMAT (SAMA DENGAN BM) */
+        
+        .action-btns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 25px; }
+        .btn-main { background: var(--primary); color: white; border: none; padding: 15px; border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+        .btn-print { background: var(--accent); color: white; border: none; padding: 15px; border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+        .btn-clear { background: #7f8c8d; color: white; border: none; padding: 15px; border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+        
         .rph-paper { width: 210mm; padding: 20mm; margin: 40px auto; background: white; border: 1px solid #000; color: #000; box-sizing: border-box; }
         .rph-header { text-align: center; border-bottom: 4px double #000; padding-bottom: 10px; margin-bottom: 20px; }
-        .rph-header h1 { margin: 0; font-size: 24px; text-transform: uppercase; }
-        .rph-header h2 { margin: 5px 0 0 0; font-size: 18px; text-transform: uppercase; }
         .meta-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
-        .meta-table td { border: 1px solid #000; padding: 8px; font-weight: bold; font-size: 14px; }
+        .meta-table td { border: 1px solid #000; padding: 8px; font-weight: bold; font-size: 13px; }
         .main-table { width: 100%; border-collapse: collapse; }
-        .main-table td { border: 1px solid #000; padding: 12px; vertical-align: top; font-size: 14px; line-height: 1.5; }
-        .label-cell { width: 28%; background: #f2f2f2 !important; font-weight: bold; text-transform: uppercase; }
-        .sig-section { margin-top: 60px; display: flex; justify-content: space-between; }
-        .sig-box { width: 220px; border-top: 1px solid #000; text-align: center; padding-top: 5px; font-weight: bold; font-size: 12px; }
+        .main-table td { border: 1px solid #000; padding: 12px; vertical-align: top; font-size: 13px; line-height: 1.5; }
+        .label-cell { width: 30%; background: #f2f2f2 !important; font-weight: bold; text-transform: uppercase; }
 
         @media print {
             body { padding: 0; background: white; }
             .no-print { display: none; }
-            .rph-paper { margin: 0; border: none; width: 100%; padding: 10mm; }
-            .label-cell { -webkit-print-color-adjust: exact; background-color: #f2f2f2 !important; }
+            .rph-paper { margin: 0; border: none; width: 100%; }
         }
     </style>
 </head>
 <body>
 
 <div class="setup-box no-print">
-    <h1>PENGURUSAN RPH: BKD TAHUN 3</h1>
+    <h1>RPH: BOROS KADAZANDUSUN T3</h1>
     <div class="grid-3">
-        <div><label>Tarikh</label><input type="date" id="tark" onchange="updateDay()"></div>
-        <div><label>Hari</label><input type="text" id="hari" readonly></div>
+        <div><label>Tark (Tarikh)</label><input type="date" id="tark" onchange="updateDay()"></div>
+        <div><label>Tadau (Hari)</label><input type="text" id="hari" readonly></div>
         <div><label>Minggu</label><select id="mng"></select></div>
-        <div><label>Masa</label><input type="text" id="masa" placeholder="Contoh: 09:30 - 10:30"></div>
+        <div><label>Timpu (Masa)</label><input type="text" id="masa" placeholder="Cth: 10:00 - 11:00"></div>
     </div>
     
-    <div><label>Tema / Uhu (Tajuk)</label><input type="text" id="tajuk" placeholder="Contoh: Uhu 2: Keluarga Ku"></div>
+    <div><label>Uhu (Tajuk)</label><input type="text" id="tajuk" placeholder="Masukkan Uhu / Tema"></div>
 
     <div style="margin-top:15px">
         <label>Standard Kandungan (SK)</label>
         <select id="sk_select" onchange="loadSP()">
-            <option value="1.1">1.1 Kopongoitan boros tumanud tuni pimato</option>
-            <option value="1.2">1.2 Mongilo tuni pibaosan id boros</option>
-            <option value="2.1">2.1 Momili, mongilo om mambasa boros, ayat</option>
-            <option value="2.2">2.2 Mambasa om mangarati bahan bacaan</option>
-            <option value="3.1">3.1 Monulis boros, frase om ayat miampai ejaan</option>
-            <option value="4.1">4.1 Manahak respond tumanud sining boros</option>
-            <option value="5.1">5.1 Momoguno puralan boros id pibaosan</option>
+            <option value="1.1">1.1 Mokinongou, mangarati' om mamarayou ralan moboros</option>
+            <option value="1.2">1.2 Mokinongou om mamagatang kolumison boros</option>
+            <option value="2.1">2.1 Mambasa' om mangarati' teks kreatif</option>
+            <option value="2.2">2.2 Mambasa' montok popoingkawas kabaalan mambasa'</option>
+            <option value="3.1">3.1 Monulis teks tumanud format di kotunud</option>
+            <option value="3.2">3.2 Momili' om monulis idea kreatif</option>
+            <option value="4.1">4.1 Popokito kabaalan momili' boros id sinding/hiis</option>
+            <option value="5.1">5.1 Momoguno Boros Ngaran (Kata Nama)</option>
+            <option value="5.2">5.2 Momoguno Boros Maan (Kata Kerja)</option>
+            <option value="5.3">5.3 Momoguno Boros Ula (Kata Sifat)</option>
         </select>
     </div>
 
@@ -78,56 +73,34 @@
         <div class="sp-container"><table class="sp-table" id="sp-list"></table></div>
     </div>
 
-    <div class="ai-buttons">
-        <div><button class="btn-ai" onclick="aiFill('obj')">🪄 JANA RPH (OBJEKTIF)</button><textarea id="f_obj" rows="3"></textarea></div>
-        <div><button class="btn-ai" onclick="aiFill('act')">🪄 JANA RPH (AKTIVITI)</button><textarea id="f_act" rows="3"></textarea></div>
-        <div><button class="btn-ai" onclick="aiFill('ref')">🪄 JANA RPH (REFLEKSI)</button><textarea id="f_ref" rows="3"></textarea></div>
+    <div style="margin-top:20px">
+        <label>Objektif / Aktiviti / Refleksi</label>
+        <textarea id="f_obj" placeholder="Objektif..." rows="2" style="margin-bottom:5px"></textarea>
+        <textarea id="f_act" placeholder="Aktiviti..." rows="3" style="margin-bottom:5px"></textarea>
+        <textarea id="f_ref" placeholder="Refleksi..." rows="2"></textarea>
     </div>
 
     <div class="action-btns">
         <button class="btn-main" onclick="generateRPH()">JANA RPH</button>
-        <button class="btn-clear" onclick="clearAll()">KOSONGKAN RPH</button>
+        <button class="btn-print" onclick="window.print()">CETAK RPH</button>
+        <button class="btn-clear" onclick="location.reload()">KOSONGKAN</button>
     </div>
-    <a href="index.html" class="btn-hub">KEMBALI KE HUB UTAMA</a>
 </div>
 
 <div id="print-zone"></div>
 
 <script>
-// Data SP Lengkap diekstrak daripada PDF DSKP BKD Tahun 3
 const spData = {
-    "1.1": [
-        "1.1.1 Mokinongou om mongoiku sebutan boros.",
-        "1.1.2 Poposuul sebutan di topot miampai kopolombusan di olinuud.",
-        "1.1.3 Popokito kopongorotian tumanud bahan multimedia."
-    ],
-    "1.2": [
-        "1.2.1 Mokinongou, mangarati om manahak respond tumanud: (i) ponguhatan (ii) ponuhuan (iii) pibaosan",
-        "1.2.2 Momoguno kopolombusan boros di topot om olinuud."
-    ],
-    "2.1": [
-        "2.1.1 Mambasa ayat miampai kopolombusan di topot.",
-        "2.1.2 Momurinait teks toniba miampai intonasi di olinuud.",
-        "2.1.3 Mambasa om mangarati teks kreatif miampai sebutan di topot."
-    ],
-    "2.2": [
-        "2.2.1 Mambasa om mangarati maklumat mantad bahan multimedia.",
-        "2.2.2 Mogihum maklumat tersurat mantad teks bacaan."
-    ],
-    "3.1": [
-        "3.1.1 Monulis pargraf toniba miampai ejaan di topot.",
-        "3.1.2 Monulis ayat tumanud gambal miampai tanda baca di topot.",
-        "3.1.3 Monulis boros di kanto tumanud ejaan di topot."
-    ],
-    "4.1": [
-        "4.1.1 Monondig sinding di ogingo miampai aksi.",
-        "4.1.2 Popokito kosonongan nilai murni mantad sining boros."
-    ],
-    "5.1": [
-        "5.1.1 Momoguno Boros Ngaran Kirois tumanud konteks.",
-        "5.1.2 Momoguno Boros Karaja Transitif tumanud konteks.",
-        "5.1.3 Momoguno Boros Adjektif (Koyuo/Warna) tumanud konteks."
-    ]
+    "1.1": ["1.1.1 Mokinongou, popointutun om mangalapat tuni boros.","1.1.2 Mokinongou om mamarati' nunu i norongou.","1.1.3 Moboros tumanud timpu, kinoyonon om piobpinaayan."],
+    "1.2": ["1.2.1 Mokinongou, mangarati' om mamarayou ralan moboros.","1.2.2 Mokinongou om mamagatang kolumison boros."],
+    "2.1": ["2.1.1 Mambasa' om mangarati' teks kreatif.","2.1.2 Mambasa' om mamarati' teks okon ko' kreatif."],
+    "2.2": ["2.2.1 Mambasa' frasa om ayat miampai loyuk di kotunud.","2.2.2 Mambasa' montok popoingkawas kabaalan mambasa'."],
+    "3.1": ["3.1.1 Monulis boros, frasa om ayat miampai tumanud puralan boros.","3.1.2 Monulis teks tumanud format di kotunud."],
+    "3.2": ["3.2.1 Momili' om monulis idea kreatif.","3.2.2 Monulis ulason toniba'."],
+    "4.1": ["4.1.1 Sinding/Hiis: Mokinongou, suminding om mamarayou.","4.1.2 Popokito kabaalan momili' boros id sinding."],
+    "5.1": ["5.1.1 Momoguno boros ngaran tumanud konteks.","5.1.2 Momoguno boros ganti ngaran tumanud konteks."],
+    "5.2": ["5.2.1 Momoguno boros maan tumanud konteks."],
+    "5.3": ["5.3.1 Momoguno boros ula tumanud konteks."]
 };
 
 let selectedSP = [];
@@ -155,61 +128,36 @@ function loadSP() {
 }
 loadSP();
 
-function aiFill(type) {
-    const t = document.getElementById('tajuk').value || "Uhu";
-    if(type==='obj') document.getElementById('f_obj').value = `Id kanto koayahan PdPc, tangaanak kaanu:\n1. Popolombus om mambasa boros/ayat id ${t} miampai intonasi di topot.`;
-    else if(type==='act') document.getElementById('f_act').value = `1. Mambasa teks toniba miampai intonasi.\n2. Monulis boros om ayat tumanud gambar.\n3. Monoluat kopolombusan boros id kumpulan.`;
-    else document.getElementById('f_ref').value = `___ / ___ tangaanak nakalantoi diti PdPc.`;
-}
-
-function clearAll() {
-    if(confirm("Padam semua data semasa?")) {
-        document.getElementById('tajuk').value = "";
-        document.getElementById('f_obj').value = "";
-        document.getElementById('f_act').value = "";
-        document.getElementById('f_ref').value = "";
-        document.getElementById('print-zone').innerHTML = "";
-        loadSP();
-    }
-}
-
 function generateRPH() {
-    if(selectedSP.length === 0) return alert("Sila pilih SP!");
     const skTxt = document.getElementById('sk_select').options[document.getElementById('sk_select').selectedIndex].text;
     const content = `
     <div class="rph-paper">
         <div class="rph-header">
-            <h1>RANCANGAN PENGAJARAN HARIAN</h1>
-            <h2>BOROS KADAZANDUSUN TAHUN 3</h2>
+            <h1 style="margin:0;font-size:20px">RANCANGAN PENGAJARAN HARIAN</h1>
+            <h2 style="margin:0;font-size:18px">BOROS KADAZANDUSUN TAHUN 3</h2>
         </div>
         <table class="meta-table">
             <tr>
                 <td>TARIKH: ${document.getElementById('tark').value}</td>
-                <td>HARI: ${document.getElementById('hari').value}</td>
+                <td>TADAU (HARI): ${document.getElementById('hari').value}</td>
                 <td>MINGGU: ${document.getElementById('mng').value}</td>
             </tr>
             <tr>
-                <td colspan="2">MASA: ${document.getElementById('masa').value}</td>
+                <td colspan="2">TIMPU (MASA): ${document.getElementById('masa').value}</td>
                 <td>GURU: ANDREW ARID</td>
             </tr>
         </table>
         <table class="main-table">
             <tr><td class="label-cell">UHU (TAJUK)</td><td>${document.getElementById('tajuk').value}</td></tr>
             <tr><td class="label-cell">STANDARD KANDUNGAN</td><td>${skTxt}</td></tr>
-            <tr><td class="label-cell">STANDARD PEMBELAJARAN</td><td style="font-weight:bold">${selectedSP.map(s => "• "+s).join("<br>")}</td></tr>
-            <tr><td class="label-cell">TUDU (OBJEKTIF)</td><td>${document.getElementById('f_obj').value.replace(/\n/g,"<br>")}</td></tr>
-            <tr><td class="label-cell">KORUANAN (AKTIVITI)</td><td>${document.getElementById('f_act').value.replace(/\n/g,"<br>")}</td></tr>
-            <tr><td class="label-cell">REFLEKSI / IMPAK</td><td>${document.getElementById('f_ref').value.replace(/\n/g,"<br>")}</td></tr>
+            <tr><td class="label-cell">STANDARD PEMBELAJARAN</td><td style="font-weight:bold">${selectedSP.join("<br>")}</td></tr>
+            <tr><td class="label-cell">OBJEKTIF PEMBELAJARAN</td><td>${document.getElementById('f_obj').value.replace(/\n/g,"<br>")}</td></tr>
+            <tr><td class="label-cell">AKTIUITI PdPc</td><td>${document.getElementById('f_act').value.replace(/\n/g,"<br>")}</td></tr>
+            <tr><td class="label-cell">REFLEKSI</td><td>${document.getElementById('f_ref').value.replace(/\n/g,"<br>")}</td></tr>
         </table>
-        <div class="sig-section">
-            <div class="sig-box">TANDATANGAN GURU</div>
-            <div class="sig-box">TANDATANGAN PENTADBIR</div>
-        </div>
-    </div><div style="page-break-after:always;"></div>`;
+    </div>`;
     document.getElementById('print-zone').innerHTML += content;
-    window.scrollTo(0, document.body.scrollHeight);
 }
 </script>
 </body>
 </html>
-
