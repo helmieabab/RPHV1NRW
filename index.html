@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUB RPH ANDREW ARID</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #f1c40f;
+            --bm-color: #2980b9;
+            --bkd-color: #e67e22;
+            --text: #ecf0f1;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a252f;
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background: var(--primary);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .profile-img {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        h1 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+        p.school {
+            margin: 5px 0 25px;
+            font-size: 14px;
+            color: #bdc3c7;
+            text-transform: uppercase;
+        }
+        .section-title {
+            text-align: left;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--accent);
+            margin: 20px 0 10px;
+            padding-left: 5px;
+            border-left: 3px solid var(--accent);
+            text-transform: uppercase;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        .btn {
+            display: block;
+            padding: 18px;
+            text-decoration: none;
+            color: white;
+            border-radius: 12px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn:active {
+            transform: scale(0.95);
+        }
+        .btn-bm {
+            background: var(--bm-color);
+        }
+        .btn-bm:hover {
+            background: #3498db;
+            box-shadow: 0 5px 15px rgba(41, 128, 185, 0.4);
+        }
+        .btn-bkd {
+            background: var(--bkd-color);
+        }
+        .btn-bkd:hover {
+            background: #f39c12;
+            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4);
+        }
+        footer {
+            margin-top: 30px;
+            font-size: 11px;
+            color: #7f8c8d;
+        }
+        .year-tag {
+            background: rgba(0,0,0,0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            float: right;
+            margin-top: 3px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="profile-img">A</div>
+    <h1>RPH DIGITAL 2026</h1>
+    <p class="school">Andrew Arid | SK Kepangian</p>
+
+    <div class="section-title">Bahasa Melayu</div>
+    <div class="menu-grid">
+        <a href="BM_T4.html" class="btn btn-bm">
+            BAHASA MELAYU TAHUN 4 <span class="year-tag">T4</span>
+        </a>
+        <a href="BM_T6.html" class="btn btn-bm">
+            BAHASA MELAYU TAHUN 6 <span class="year-tag">T6</span>
+        </a>
+    </div>
+
+    <div class="section-title">Boros Kadazandusun</div>
+    <div class="menu-grid">
+        <a href="BKD_T1.html" class="btn btn-bkd">
+            BKD TAHUN 1 <span class="year-tag">T1</span>
+        </a>
+        <a href="BKD_T3.html" class="btn btn-bkd">
+            BKD TAHUN 3 <span class="year-tag">T3</span>
+        </a>
+        <a href="BKD_T5.html" class="btn btn-bkd">
+            BKD TAHUN 5 <span class="year-tag">T5</span>
+        </a>
+    </div>
+
+    <footer>
+        &copy; 2026 Sistem RPH Digital Andrew Arid<br>
+        Dikuasakan oleh GitHub Pages
+    </footer>
+</div>
+
+</body>
+</html>
